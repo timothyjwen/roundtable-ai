@@ -98,6 +98,22 @@ nav .try{font-size:13px;font-weight:500;background:var(--blue);color:#fff;paddin
 .stepc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 30px}
 .stepc .n{font-size:14px;font-weight:600;color:var(--blue);font-variant-numeric:tabular-nums;margin-bottom:16px}
 .stepc h3{font-size:22px;margin-bottom:9px}.stepc p{color:var(--soft);font-size:15.5px;line-height:1.6}
+/* how-it-works (Glass style: steps + discussion panel) */
+.hgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:30px;align-items:start}
+.shead2{margin-bottom:26px}
+.shead2 .kick{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:10px}
+.shead2 h2{font-size:clamp(28px,3.6vw,46px)}
+.hsteps{display:flex;flex-direction:column;gap:12px}
+.hstep{display:flex;align-items:flex-start;gap:15px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-sm)}
+.hnum{width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:14px;flex:none}
+.hstep strong{display:block;font-size:17px;font-weight:600}.hstep span{display:block;color:var(--soft);font-size:14px;margin-top:3px;line-height:1.5}
+.hpanel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);padding:26px 28px}
+.topicline{display:flex;align-items:center;gap:10px;background:var(--bg2);border-radius:999px;padding:11px 18px;font-size:12px;font-weight:600;color:var(--soft);margin-bottom:18px}
+.topicline strong{color:var(--ink);font-size:14px;font-weight:600}
+.exrow{display:flex;gap:13px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--line)}
+.exrow img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+.exrow .who{font-size:12.5px;font-weight:600}.exrow .who span{color:var(--faint);font-weight:400}
+.exrow p{margin-top:4px;font-size:14.5px;line-height:1.5;color:var(--soft)}.exrow em{font-style:normal;color:var(--blue);font-weight:600}
 
 /* example chat */
 .demo-wrap{max-width:720px;margin:0 auto}
@@ -110,6 +126,14 @@ nav .try{font-size:13px;font-weight:500;background:var(--blue);color:#fff;paddin
 .msg .who{font-size:13px;font-weight:600;margin-bottom:4px}.msg .who span{color:var(--faint);font-weight:400}
 .msg p{font-size:15.5px;line-height:1.55;color:var(--ink)}
 .msg .em{color:var(--blue);font-weight:600;font-style:normal}
+@keyframes msgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.msg.pop{animation:msgIn .5s var(--ease) both}
+.msg .dots{display:inline-flex;gap:5px;padding:7px 0 3px}
+.msg .dots span{width:7px;height:7px;border-radius:50%;background:var(--faint);animation:bd 1.2s infinite}
+.msg .dots span:nth-child(2){animation-delay:.16s}.msg .dots span:nth-child(3){animation-delay:.32s}
+@keyframes bd{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.replay{margin:20px auto 0;display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;color:var(--blue);background:var(--blue-soft);border-radius:999px;padding:9px 18px;cursor:pointer;transition:.2s}
+.replay:hover{background:#dbe9ff}
 
 /* roster */
 .roster{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -129,7 +153,7 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .back{position:fixed;left:16px;bottom:16px;z-index:110;font-size:12px;font-weight:500;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);border:1px solid var(--line);color:var(--ink);padding:9px 14px;border-radius:980px;box-shadow:var(--sh-sm)}
 
 @media(max-width:860px){
-  .bento,.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}
+  .bento,.steps,.hgrid{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}
   nav .lk{display:none}.hero{padding-top:108px}.hero .grid{grid-template-columns:1fr;gap:30px}.cloud{order:-1}
 }
 @media(prefers-reduced-motion:reduce){.ring,.seat .av{animation:none!important}.r{opacity:1;transform:none}}
@@ -180,11 +204,17 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     </div>
   </section>
 
-  <!-- HOW -->
+  <!-- HOW (Glass-style: steps + discussion panel) -->
   <section class="sec grey" id="how">
-    <div class="wrap">
-      <div class="shead r"><h2>Three steps to a sharper answer.</h2></div>
-      <div class="steps" id="steps"></div>
+    <div class="wrap hgrid">
+      <div>
+        <div class="shead2 r"><div class="kick">How it works</div><h2>Three steps to a sharper answer.</h2></div>
+        <div class="hsteps r d1" id="steps"></div>
+      </div>
+      <article class="hpanel r d2">
+        <div class="topicline"><span>Discussion</span><strong id="topicQ"></strong></div>
+        <div id="exchange"></div>
+      </article>
     </div>
   </section>
 
@@ -195,6 +225,7 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
       <div class="demo-wrap r d1">
         <div class="ask"><div class="b" id="askQ"></div></div>
         <div class="chat" id="chat"></div>
+        <button class="replay" id="replay" onclick="playChat()">↺ Replay the conversation</button>
       </div>
     </div>
   </section>
@@ -228,15 +259,26 @@ demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; roster
 closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
 cloud.innerHTML=RT.heroCardsHTML();
 
-// steps
-steps.innerHTML=C.steps.map(s=>`<div class="stepc"><div class="n">Step ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
+// how-it-works: steps list + discussion panel (Glass style)
+steps.innerHTML=C.steps.map(s=>`<div class="hstep"><div class="hnum">${s.n.replace('0','')}</div><div><strong>${s.title}</strong><span>${s.body}</span></div></div>`).join('');
+document.getElementById('topicQ').textContent='“'+RT.demo.q+'”';
+document.getElementById('exchange').innerHTML=RT.demo.turns.map(t=>{const txt=t.short.replace(/\b(after|before)\b/i,'<em>$1</em>');return `<div class="exrow"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;}).join('');
 
-// demo
+// demo — responses appear one by one, like a live text thread
 askQ.textContent=RT.demo.q;
-chat.innerHTML=RT.demo.turns.map(t=>{
-  const txt=t.text.replace(/\b(after|before)\b/i,'<em class="em">$1</em>');
-  return `<div class="msg"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;
-}).join('');
+const msgHTML=t=>{const txt=t.text.replace(/\b(after|before)\b/i,'<em class="em">$1</em>');return `<div class="msg pop"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;};
+const typeHTML=t=>`<div class="msg pop typing"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><div class="dots"><span></span><span></span><span></span></div></div></div>`;
+let chatTimers=[];
+function playChat(){
+  chatTimers.forEach(clearTimeout);chatTimers=[];chat.innerHTML='';
+  let delay=300;
+  RT.demo.turns.forEach(t=>{
+    chatTimers.push(setTimeout(()=>{chat.insertAdjacentHTML('beforeend',typeHTML(t));},delay));delay+=800;
+    chatTimers.push(setTimeout(()=>{const n=chat.querySelector('.typing');if(n)n.outerHTML=msgHTML(t);},delay));delay+=1050;
+  });
+}
+window.playChat=playChat;
+new IntersectionObserver((es,o)=>{if(es.some(e=>e.isIntersecting)){playChat();o.disconnect();}},{threshold:.3}).observe(chat);
 
 // roster
 roster.innerHTML=RT.roster.map(p=>`<div class="face"><div class="ph"><img loading="lazy" src="${p.img}" alt="${p.name}"></div><b>${p.name}</b><span>${p.role}</span></div>`).join('');
