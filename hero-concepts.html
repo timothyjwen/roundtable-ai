@@ -104,7 +104,7 @@ h1{font-size:clamp(38px,5.4vw,72px);font-weight:900}
 .seat.empty .av span{font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.06em;transform:rotate(0)}
 @keyframes glowpulse{0%,100%{box-shadow:0 0 0 0 rgba(232,97,58,.35)}50%{box-shadow:0 0 0 9px rgba(232,97,58,0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spin-rev{to{transform:rotate(-360deg)}}
+@keyframes spin-rev{to{transform:translate(-50%,-50%) rotate(-360deg)}}
 .table:hover .ring,.table:hover .seat .av{animation-play-state:paused}
 
 /* ===== VISUAL: portrait stack (spectacle) ===== */
@@ -363,9 +363,9 @@ function seatsHTML(seats,R){
 function buildTable(elId,opts){
   const seats=opts.seats; const n=seats.length; const R=opts.R||42;
   let inner=`<div class="felt"></div><div class="ring">`;
-  inner+=seats.map((m,i)=>{const a=(i/n)*360;
-    if(m.empty){return `<div class="seat empty" style="transform:rotate(${a}deg) translate(${R}%) rotate(${-a}deg)"><div class="av"><span>YOU</span></div></div>`;}
-    return `<div class="seat" style="transform:rotate(${a}deg) translate(${R}%) rotate(${-a}deg)"><div class="av"><img loading="lazy" src="${m[1]}" alt="${m[0]}"></div></div>`;
+  inner+=seats.map((m,i)=>{const ang=(i/n)*2*Math.PI-Math.PI/2;const x=(50+R*Math.cos(ang)).toFixed(2);const y=(50+R*Math.sin(ang)).toFixed(2);
+    if(m.empty){return `<div class="seat empty" style="left:${x}%;top:${y}%"><div class="av"><span>YOU</span></div></div>`;}
+    return `<div class="seat" style="left:${x}%;top:${y}%"><div class="av"><img loading="lazy" src="${m[1]}" alt="${m[0]}"></div></div>`;
   }).join('');
   inner+=`</div><div class="core"><span class="badge"><span class="d"></span>Live now</span><span class="rt">${opts.title}<small>${opts.sub}</small></span></div>`;
   document.getElementById(elId).innerHTML=inner;
