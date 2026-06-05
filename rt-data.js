@@ -9,7 +9,7 @@ window.RT = {
     ctaPrimary: "Meet the agents",
     ctaSecondary: "Watch demo",
     steps: [
-      { n: "01", title: "Pick your agents", body: "Choose two to four specialists. Mix a strategist with a lawyer, a creative with a finance mind." },
+      { n: "01", title: "Pick your agents", body: "Choose two to four specialists — pair a strategist with a finance mind, a founder with a product lead." },
       { n: "02", title: "Ask your question", body: "Plain language. A decision, a creative problem, a grey area — the sharper the question, the richer the debate." },
       { n: "03", title: "Watch them debate", body: "They challenge each other, then synthesise the useful parts into one clear direction." }
     ],
@@ -26,16 +26,16 @@ window.RT = {
     closeTitle: "Pull up a chair.",
     closeSub: "Your first roundtable is free. No setup, no prompt-craft — just a question."
   },
-  // Real personas, local avatars. Roles kept descriptive of the roundtable concept.
+  // Tech / startup panel for the fundraising story. Real personas, local avatars.
   roster: [
-    { name: "James Wei",   role: "Strategy",            img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg" },
-    { name: "Marco Reyes", role: "Finance & Ventures",  img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg" },
-    { name: "Frida Kahlo", role: "Creative",            img: "avatars/a23f4b21-0384-4bd9-9af9-777b71f5b85a-1779101568128.jpg" },
-    { name: "da Vinci",    role: "Design & Invention",  img: "avatars/092e295d-3b0d-4fe8-894c-ce09de8503e3-1779101557820.jpg" },
-    { name: "Vivienne",    role: "Brand & Culture",     img: "avatars/5d1eeb06-cd43-4b79-b227-1570efb0fe7a-1779118893633.jpg" },
-    { name: "Eunji Choi",  role: "Technology",          img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg" },
-    { name: "Dana Mercer", role: "Media",               img: "avatars/7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg" },
-    { name: "Clara Hsu",   role: "Moderator",           img: "avatars/d605529a-5bd1-4df9-a74b-b54f69d491a7-1779101561622.jpg" }
+    { name: "James Wei",       role: "Strategy",            img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg" },
+    { name: "Marco Reyes",     role: "Finance & Ventures",  img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg" },
+    { name: "Eunji Choi",      role: "Engineering",         img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg" },
+    { name: "Dana Mercer",     role: "Product",             img: "avatars/7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg" },
+    { name: "Zhao Qihang",     role: "Founder",             img: "avatars/83be0439-c766-4eda-bc83-a534501f8337-1778827838980.jpg" },
+    { name: "Elias Varga",     role: "AI Research",         img: "avatars/680343c8-ba7d-4bc4-8c24-554002301197-1778828752853.jpg" },
+    { name: "Kavya Krishnan",  role: "Growth",              img: "avatars/972b8773-6639-4678-8601-9f0c210a2cce-1778827982228.jpg" },
+    { name: "Nadia Farahani",  role: "Operations",          img: "avatars/d9fdb952-83d1-4d16-ab01-48d073716220-1778827773567.jpg" }
   ],
   demo: {
     q: "Should I raise funding before or after launching?",
