@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Roundtable — your personal expert roundtable, on demand.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Inter is only a web fallback; Apple devices render SF Pro via -apple-system -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f5f5f7; --ink:#1d1d1f; --soft:#6e6e73; --faint:#86868b;
+  --line:rgba(0,0,0,.10); --line2:rgba(0,0,0,.16);
+  --blue:#0071e3; --blue2:#0058b9; --blue-soft:#eaf2fe; --red:#ff3b30;
+  --r:20px; --r-lg:28px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --sh:0 30px 80px -40px rgba(0,0,0,.30);
+  --sh-sm:0 10px 30px -18px rgba(0,0,0,.25);
+  --pad:clamp(84px,12vw,168px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1100px,90vw);margin:0 auto}
+.wide{width:min(1320px,94vw);margin:0 auto}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--blue);display:inline-flex;align-items:center;gap:8px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(255,59,48,.14)}
+.soft{color:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:7px;border-radius:980px;font-size:16px;font-weight:500;padding:12px 23px;transition:.25s var(--ease)}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue2);transform:translateY(-1px)}
+.btn-ghost{color:var(--blue)}.btn-ghost:hover{text-decoration:underline;text-underline-offset:3px}
+.btn-soft{background:var(--bg2);color:var(--ink)}.btn-soft:hover{background:#ececee;transform:translateY(-1px)}
+.r{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;height:52px;display:flex;align-items:center;
+  background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--line)}
+nav .wide{display:flex;align-items:center;justify-content:space-between}
+nav b{font-size:18px;font-weight:600;letter-spacing:-.02em}
+nav .lk{display:flex;gap:32px}
+nav .lk a{font-size:13px;color:var(--soft);transition:color .2s}nav .lk a:hover{color:var(--ink)}
+nav .try{font-size:13px;font-weight:500;background:var(--blue);color:#fff;padding:7px 15px;border-radius:980px}
+
+/* hero */
+.hero{padding:140px 0 0;text-align:center}
+.hero h1{font-size:clamp(44px,7.4vw,92px);font-weight:600;margin:18px auto 0;max-width:14ch}
+.hero .sub{font-size:clamp(19px,2.1vw,26px);color:var(--soft);max-width:660px;margin:24px auto 0;font-weight:400;line-height:1.42}
+.hero .cta{display:flex;gap:22px;justify-content:center;align-items:center;margin-top:34px;flex-wrap:wrap}
+/* hero roundtable visual */
+.stage{position:relative;width:min(720px,92vw);aspect-ratio:1/.86;margin:54px auto 0}
+.halo{position:absolute;inset:-6% -6% auto;height:70%;top:6%;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 40%,#eef4ff,transparent 62%);filter:blur(6px);z-index:0}
+.tablev{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,86%);aspect-ratio:1}
+.felt{position:absolute;inset:20%;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--sh)}
+.felt:before{content:"";position:absolute;inset:9%;border-radius:50%;border:1px dashed var(--line)}
+.center{position:absolute;inset:0;display:grid;place-content:center;text-align:center;z-index:4;padding:0 24%}
+.center .live{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--blue);display:inline-flex;gap:6px;align-items:center;justify-content:center;margin-bottom:8px}
+.center .live i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.6s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.center q{font-size:clamp(14px,1.5vw,17px);font-weight:500;color:var(--ink);line-height:1.35;quotes:none}
+.center small{display:block;margin-top:9px;font-size:11px;color:var(--faint)}
+.ring{position:absolute;inset:0;animation:spin 64s linear infinite}
+.seat{position:absolute;top:50%;left:50%;width:0;height:0}
+.seat .av{position:absolute;width:clamp(58px,9vw,82px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);overflow:hidden;background:var(--bg2);border:4px solid #fff;box-shadow:var(--sh-sm);animation:spinr 64s linear infinite}
+.seat .av img{width:100%;height:100%;object-fit:cover}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinr{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.stage:hover .ring,.stage:hover .seat .av{animation-play-state:paused}
+
+/* generic section */
+.sec{padding:var(--pad) 0}
+.sec.grey{background:var(--bg2)}
+.shead{text-align:center;max-width:760px;margin:0 auto 64px}
+.shead h2{font-size:clamp(32px,4.6vw,56px)}
+.shead p{color:var(--soft);font-size:clamp(17px,1.8vw,21px);margin-top:16px;line-height:1.5}
+
+/* value bento */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 30px;box-shadow:var(--sh-sm)}
+.grey .card{background:#fff}
+.card .k{width:44px;height:44px;border-radius:13px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:20px}
+.card .k svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.7}
+.card h3{font-size:23px;margin-bottom:10px}
+.card p{color:var(--soft);font-size:15.5px;line-height:1.6}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.stepc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 30px}
+.stepc .n{font-size:14px;font-weight:600;color:var(--blue);font-variant-numeric:tabular-nums;margin-bottom:16px}
+.stepc h3{font-size:22px;margin-bottom:9px}.stepc p{color:var(--soft);font-size:15.5px;line-height:1.6}
+
+/* example chat */
+.demo-wrap{max-width:720px;margin:0 auto}
+.ask{display:flex;justify-content:center;margin-bottom:24px}
+.ask .b{background:var(--ink);color:#fff;border-radius:20px 20px 6px 20px;padding:14px 22px;font-size:17px;font-weight:500;max-width:80%}
+.chat{display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:var(--sh-sm)}
+.grey .msg{background:#fff}
+.msg img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line)}
+.msg .who{font-size:13px;font-weight:600;margin-bottom:4px}.msg .who span{color:var(--faint);font-weight:400}
+.msg p{font-size:15.5px;line-height:1.55;color:var(--ink)}
+.msg .em{color:var(--blue);font-weight:600;font-style:normal}
+
+/* roster */
+.roster{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.face{text-align:center}
+.face .ph{aspect-ratio:1;border-radius:24px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);box-shadow:var(--sh-sm)}
+.face .ph img{width:100%;height:100%;object-fit:cover;transition:.5s var(--ease)}
+.face:hover .ph img{transform:scale(1.04)}
+.face b{display:block;font-size:16px;font-weight:600;margin-top:14px}
+.face span{font-size:13px;color:var(--soft)}
+
+/* close */
+.close{text-align:center;padding:var(--pad) 0}
+.close h2{font-size:clamp(38px,5.6vw,72px)}
+.close p{color:var(--soft);font-size:clamp(17px,1.9vw,21px);margin:18px auto 32px;max-width:520px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-size:12px}
+footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.back{position:fixed;left:16px;bottom:16px;z-index:110;font-size:12px;font-weight:500;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);border:1px solid var(--line);color:var(--ink);padding:9px 14px;border-radius:980px;box-shadow:var(--sh-sm)}
+
+@media(max-width:860px){
+  .bento,.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}
+  nav .lk{display:none}.hero{padding-top:108px}
+}
+@media(prefers-reduced-motion:reduce){.ring,.seat .av{animation:none!important}.r{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="back" href="hero-concepts.html">← all designs</a>
+<nav id="nav"><div class="wide">
+  <b>Roundtable</b>
+  <div class="lk"><a href="#what">Why</a><a href="#how">How it works</a><a href="#agents">Agents</a><a href="#demo">Demo</a></div>
+  <a class="try" href="#start">Try free</a>
+</div></nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow r"><span class="dot"></span>MULTI-EXPERT AI</span>
+      <h1 class="r d1" id="h1"></h1>
+      <p class="sub r d2" id="sub"></p>
+      <div class="cta r d3">
+        <a class="btn btn-blue" href="#agents" id="cta1"></a>
+        <a class="btn btn-ghost" href="#demo" id="cta2"></a>
+      </div>
+    </div>
+    <div class="stage r d2">
+      <div class="halo"></div>
+      <div class="tablev">
+        <div class="felt"></div>
+        <div class="center">
+          <span class="live"><i></i>LIVE DISCUSSION</span>
+          <q id="centerQ"></q>
+          <small id="centerS"></small>
+        </div>
+        <div class="ring" id="ring"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="sec" id="what">
+    <div class="wrap">
+      <div class="shead r"><h2>One question. Every angle.</h2>
+        <p>A single AI gives you one voice. Roundtable turns your question into a live discussion — so you hear the angles before you decide what you think.</p></div>
+      <div class="bento">
+        <article class="card r d1">
+          <div class="k"><svg viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg></div>
+          <h3>Generative discussion</h3><p>Not a static answer. Ideas get introduced, challenged, and refined in real time — easier to follow than a wall of text.</p>
+        </article>
+        <article class="card r d2">
+          <div class="k"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="16" cy="10" r="2.6"/><path d="M4 19a5 5 0 0 1 10 0M14 19a4 4 0 0 1 6-3"/></svg></div>
+          <h3>Expert perspectives</h3><p>Each specialist argues from a distinct point of view, so fewer angles slip past you.</p>
+        </article>
+        <article class="card r d3">
+          <div class="k"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 4 7-4V8"/></svg></div>
+          <h3>Both sides, then yours</h3><p>Hear the debate from every side, then come to your own conclusion. You stay the decision-maker.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="sec grey" id="how">
+    <div class="wrap">
+      <div class="shead r"><h2>Three steps to a sharper answer.</h2></div>
+      <div class="steps" id="steps"></div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="sec" id="demo">
+    <div class="wrap">
+      <div class="shead r"><h2 id="demoTitle"></h2><p>Pick a couple of specialists, ask, and watch them work it out. Here’s a real exchange.</p></div>
+      <div class="demo-wrap r d1">
+        <div class="ask"><div class="b" id="askQ"></div></div>
+        <div class="chat" id="chat"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENTS -->
+  <section class="sec grey" id="agents">
+    <div class="wrap">
+      <div class="shead r"><h2 id="rosterTitle"></h2><p id="rosterSub"></p></div>
+      <div class="roster" id="roster"></div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close" id="start">
+    <div class="wrap">
+      <h2 class="r" id="closeTitle"></h2>
+      <p class="r d1" id="closeSub"></p>
+      <a class="btn btn-blue r d2" href="#" style="font-size:17px;padding:14px 30px">Start a session</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wide"><span>Roundtable · Multi-expert AI</span><span>AI-generated discussions for exploration. Not professional advice.</span></div></footer>
+
+<script src="rt-data.js"></script>
+<script>
+const C=RT.copy;
+h1.textContent=C.h1; sub.textContent=C.sub;
+cta1.textContent=C.ctaPrimary; cta2.innerHTML=C.ctaSecondary+' ›';
+demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
+closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
+centerQ.textContent='“'+RT.demo.q+'”';
+centerS.textContent=RT.demo.turns.map(t=>t.name.split(' ')[0]).slice(0,3).join(' · ')+' · debating';
+
+// hero ring
+(function(){
+  const six=RT.roster.slice(0,6), R=44;
+  ring.innerHTML=six.map((p,i)=>{const a=(i/six.length)*2*Math.PI-Math.PI/2;const x=(50+R*Math.cos(a)).toFixed(2),y=(50+R*Math.sin(a)).toFixed(2);
+    return `<div class="seat" style="left:${x}%;top:${y}%"><div class="av"><img loading="lazy" src="${p.img}" alt="${p.name}"></div></div>`;}).join('');
+})();
+
+// steps
+steps.innerHTML=C.steps.map(s=>`<div class="stepc"><div class="n">Step ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
+
+// demo
+askQ.textContent=RT.demo.q;
+chat.innerHTML=RT.demo.turns.map(t=>{
+  const txt=t.text.replace(/\b(after|before)\b/i,'<em class="em">$1</em>');
+  return `<div class="msg"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;
+}).join('');
+
+// roster
+roster.innerHTML=RT.roster.map(p=>`<div class="face"><div class="ph"><img loading="lazy" src="${p.img}" alt="${p.name}"></div><b>${p.name}</b><span>${p.role}</span></div>`).join('');
+
+// reveal + nav
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.r').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
