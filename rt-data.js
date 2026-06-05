@@ -10,7 +10,7 @@ window.RT = {
     ctaSecondary: "Watch demo",
     steps: [
       { n: "01", title: "Pick your agents", body: "Choose two to four specialists — pair a strategist with a finance mind, a founder with a product lead." },
-      { n: "02", title: "Ask your question", body: "Plain language. A decision, a creative problem, a grey area — the sharper the question, the richer the debate." },
+      { n: "02", title: "Start the conversation", body: "Ask anything you want to hear people argue, react to, or explore. A hot take, a weird question, a creative problem, or something you're still figuring out — the more specific you are, the better the conversation gets." },
       { n: "03", title: "Watch them debate", body: "They challenge each other, then synthesise the useful parts into one clear direction." }
     ],
     whyTitle: "One question. Every angle.",
