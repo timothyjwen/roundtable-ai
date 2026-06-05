@@ -38,15 +38,25 @@ nav .lk{display:flex;gap:30px;font-family:Inter;font-size:13px;color:var(--soft)
 .hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
 .hero .sub{font-size:19px;line-height:1.6;color:var(--soft);max-width:440px;margin:24px 0 32px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-/* hero portrait trio */
-.trio{position:relative;height:clamp(360px,42vw,480px)}
-.fr{position:absolute;border-radius:6px;overflow:hidden;background:var(--card);border:6px solid var(--card);box-shadow:0 30px 70px -34px rgba(42,36,29,.5)}
-.fr img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.04)}
-.fr .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(42,36,29,.78);color:var(--paper);font-family:Inter;font-size:10px;letter-spacing:.04em;padding:5px 8px;display:flex;justify-content:space-between}
-.fr.a{width:46%;aspect-ratio:3/4;left:2%;top:8%;z-index:2;transform:rotate(-3deg)}
-.fr.b{width:42%;aspect-ratio:3/4;right:4%;top:0;z-index:3;transform:rotate(2deg)}
-.fr.c{width:40%;aspect-ratio:3/4;left:30%;bottom:0;z-index:4;transform:rotate(-1deg)}
-.gold-seal{position:absolute;right:0;top:42%;z-index:5;width:84px;height:84px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;text-align:center;background:var(--paper);font-family:Inter;font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.4}
+/* hero floating agent cards (copy left, cards right) */
+.cloud{position:relative;height:clamp(440px,48vw,540px)}
+.fcard{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;box-shadow:0 24px 54px -28px rgba(42,36,29,.42);min-width:172px;animation:bob 5s ease-in-out infinite}
+.fcard:nth-child(2){animation-delay:-2.4s}.fcard:nth-child(3){animation-delay:-1.2s}.fcard:nth-child(4){animation-delay:-3.1s}
+.fcard .top{display:flex;align-items:center;gap:12px}
+.fcard .av{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none;border:1px solid var(--line)}
+.fcard .nm{font-family:'Fraunces',serif;font-weight:600;font-size:17px;line-height:1.04}
+.fcard .rl{font-family:Inter;font-size:11px;color:var(--soft);letter-spacing:.02em;margin-top:1px}
+.fcard .pill{display:inline-block;margin-top:12px;font-family:Inter;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);padding:4px 11px;border-radius:999px}
+.fcard.a{top:1%;left:0;z-index:2}.fcard.b{top:7%;right:0;z-index:2}.fcard.c{bottom:7%;left:2%;z-index:2}.fcard.d{bottom:0;right:3%;z-index:2}
+.livebubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:min(304px,76%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:19px 21px;box-shadow:0 36px 80px -34px rgba(42,36,29,.5)}
+.livebubble .lab{font-family:Inter;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--gold);display:flex;align-items:center;gap:7px;margin-bottom:12px;text-transform:uppercase}
+.livebubble .lab i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.6s infinite}
+.livebubble q{font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.34;color:var(--ink);quotes:none}
+.livebubble q b{font-style:normal;font-weight:600;color:var(--gold)}
+.livebubble .resp{display:flex;align-items:center;gap:9px;margin-top:14px;font-family:Inter;font-size:11px;color:var(--faint)}
+.livebubble .mini{display:flex}.livebubble .mini img{width:22px;height:22px;border-radius:50%;border:2px solid var(--card);object-fit:cover;margin-left:-7px}.livebubble .mini img:first-child{margin-left:0}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 /* sections */
 .sec{padding:clamp(80px,10vw,128px) 0}
 .kicker{font-family:Inter;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
@@ -86,7 +96,7 @@ nav .lk{display:flex;gap:30px;font-family:Inter;font-size:13px;color:var(--soft)
 .close h2{font-size:clamp(44px,6.4vw,86px);font-weight:600}.close h2 em{font-style:italic;color:var(--gold)}
 .close p{color:var(--soft);font-size:18px;margin:18px auto 30px;max-width:440px}
 footer{border-top:1px solid var(--line);padding:28px 0;font-family:Inter;font-size:12px;color:var(--faint)}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media(max-width:880px){nav .lk{display:none}.hero .grid,.steps{grid-template-columns:1fr}.trio{order:-1}.wrow{grid-template-columns:40px 1fr;gap:14px}.wrow p{grid-column:1/-1}.roster{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:880px){nav .lk{display:none}.hero .grid,.steps{grid-template-columns:1fr}.cloud{order:-1}.wrow{grid-template-columns:40px 1fr;gap:14px}.wrow p{grid-column:1/-1}.roster{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none}}
 </style>
 </head>
@@ -101,7 +111,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-family:Inter;font-si
       <p class="sub r d2" id="sub"></p>
       <div class="ctas r d3"><a class="btn fill" href="#agents" id="cta1"></a><a class="btn line" href="#how" id="cta2"></a></div>
     </div>
-    <div class="trio r d2" id="trio"></div>
+    <div class="cloud r d2" id="cloud"></div>
   </div></header>
 
   <section class="sec wrap" id="why">
@@ -140,12 +150,11 @@ cta1.textContent=C.ctaPrimary; cta2.textContent=C.ctaSecondary;
 whyTitle.textContent=C.whyTitle; whySub.textContent=C.whySub;
 demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
 closeTitle.innerHTML=C.closeTitle.replace('chair','<em>chair</em>'); closeSub.textContent=C.closeSub;
-// trio
-const t=RT.roster;
-trio.innerHTML=`<div class="fr a"><img loading="lazy" src="${t[3].img}" alt="${t[3].name}"><span class="cap"><b>${t[3].name}</b><span>${t[3].role}</span></span></div>`+
-  `<div class="fr b"><img loading="lazy" src="${t[2].img}" alt="${t[2].name}"><span class="cap"><b>${t[2].name}</b><span>${t[2].role}</span></span></div>`+
-  `<div class="fr c"><img loading="lazy" src="${t[0].img}" alt="${t[0].name}"><span class="cap"><b>${t[0].name}</b><span>${t[0].role}</span></span></div>`+
-  `<div class="gold-seal">Est.<br>2026</div>`;
+// floating agent cards + live discussion bubble (copy left / cards right)
+const t=RT.roster, pos=['a','b','c','d'], traits=['Strategic','ROI-minded','Pragmatic','User-first'];
+const qHtml=RT.demo.q.replace(/\b(before|after)\b/g,'<b>$1</b>');
+cloud.innerHTML=t.slice(0,4).map((p,i)=>`<div class="fcard ${pos[i]}"><div class="top"><img class="av" loading="lazy" src="${p.img}" alt="${p.name}"><div><div class="nm">${p.name}</div><div class="rl">${p.role}</div></div></div><span class="pill">${traits[i]}</span></div>`).join('')+
+  `<div class="livebubble"><div class="lab"><i></i>Live discussion</div><q>“${qHtml}”</q><div class="resp"><span class="mini">${t.slice(0,3).map(p=>`<img src="${p.img}" alt="">`).join('')}</span>3 specialists responding…</div></div>`;
 whylist.innerHTML=C.why.map((w,i)=>`<div class="wrow"><div class="no">0${i+1}</div><h3>${w.title}</h3><p>${w.body}</p></div>`).join('');
 steps.innerHTML=C.steps.map(s=>`<div class="stp"><div class="n">STEP ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
 q.innerHTML=`<small>You asked</small>“${RT.demo.q}”`;
