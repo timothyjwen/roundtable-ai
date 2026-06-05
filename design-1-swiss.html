@@ -36,16 +36,16 @@ nav .links a:hover{color:var(--red)}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hero .num{font-family:'Space Grotesk';font-size:12px;letter-spacing:.12em;color:var(--mut);margin-top:28px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
 /* floating cards */
-.cloud{position:relative;height:clamp(470px,50vw,580px)}
-.fcard{position:absolute;width:clamp(164px,17vw,208px);aspect-ratio:3/4;border-radius:2px;overflow:hidden;background:#f2f2f2;border:1px solid var(--ink);box-shadow:7px 7px 0 var(--ink);animation:bob 6s ease-in-out infinite}
+.cloud{position:relative;height:clamp(520px,56vw,660px)}
+.fcard{position:absolute;width:clamp(150px,15.5vw,186px);aspect-ratio:3/4;border-radius:2px;overflow:hidden;background:#f2f2f2;border:1px solid var(--ink);box-shadow:7px 7px 0 var(--ink);animation:bob 6s ease-in-out infinite}
 .fcard:nth-child(2){animation-delay:-2.4s}.fcard:nth-child(3){animation-delay:-1.2s}.fcard:nth-child(4){animation-delay:-3.1s}
 .fcard .ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06)}
 .fcard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(0,0,0,.72))}
-.fcard .pill{position:absolute;left:11px;top:11px;z-index:2;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--red);padding:4px 9px;border-radius:2px}
+.fcard .say{position:absolute;left:9px;right:9px;top:10px;z-index:3;background:#fff;border:1px solid var(--ink);border-radius:2px;padding:8px 11px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;line-height:1.3;color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
 .fcard .meta{position:absolute;left:13px;right:12px;bottom:12px;z-index:2;color:#fff}
 .fcard .meta b{display:block;font-family:'Space Grotesk';font-weight:600;font-size:18px;letter-spacing:-.02em}
 .fcard .meta span{font-family:'DM Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.82)}
-.fcard.a{top:0;left:0;rotate:-2deg}.fcard.b{top:7%;right:0;rotate:2deg}.fcard.c{bottom:7%;left:2%;rotate:1deg}.fcard.d{bottom:0;right:3%;rotate:-1deg}
+.fcard.a{top:0;left:0;rotate:-2deg}.fcard.b{top:8%;right:0;rotate:2deg}.fcard.c{bottom:0;left:28%;rotate:-1deg}
 .livebubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:min(292px,76%);background:#fff;border:1px solid var(--ink);border-radius:2px;padding:17px 19px;box-shadow:6px 6px 0 var(--ink)}
 .livebubble .lab{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:7px;margin-bottom:11px}
 .livebubble .lab i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite}

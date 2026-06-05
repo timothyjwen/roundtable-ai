@@ -40,9 +40,9 @@ window.RT = {
   demo: {
     q: "Should I raise funding before or after launching?",
     turns: [
-      { name: "James Wei",   role: "Strategy",           img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg", text: "Raise after. Land your first ten paying customers — traction makes every investor conversation easier, and revenue is the best story you have." },
-      { name: "Marco Reyes", role: "Finance & Ventures", img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg", text: "I'd push back. If you're capital-intensive, raise before — waiting on revenue can mean shipping a weaker product into a closing window." },
-      { name: "Eunji Choi",  role: "Technology",         img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg", text: "Either way, get one real signal of demand first. That's what settles the question — not the timing." }
+      { name: "James Wei",   role: "Strategy",           img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg", short: "Raise after — land 10 paying customers first.",   text: "Raise after. Land your first ten paying customers — traction makes every investor conversation easier, and revenue is the best story you have." },
+      { name: "Marco Reyes", role: "Finance & Ventures", img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg", short: "Capital-intensive? Raise before you launch.",      text: "I'd push back. If you're capital-intensive, raise before — waiting on revenue can mean shipping a weaker product into a closing window." },
+      { name: "Eunji Choi",  role: "Engineering",        img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg", short: "Either way — prove real demand first.",            text: "Either way, get one real signal of demand first. That's what settles the question — not the timing." }
     ]
   }
 };
@@ -51,13 +51,12 @@ window.RT = {
    around a centre "Live discussion" bubble. Each design styles
    .fcard / .livebubble / .pill in its own aesthetic. */
 RT.heroCardsHTML = function(){
-  const t = RT.roster, pos = ['a','b','c','d'];
-  const traits = ['Strategic','ROI-minded','Pragmatic','User-first'];
+  const t = RT.demo.turns, pos = ['a','b','c'];   // 3 panels, each a different perspective
   const q = RT.demo.q.replace(/\b(before|after)\b/g, '<b>$1</b>');
-  const cards = t.slice(0,4).map((p,i) =>
-    `<div class="fcard ${pos[i]}"><img class="ph" loading="lazy" src="${p.img}" alt="${p.name}"><span class="pill">${traits[i]}</span><div class="meta"><b>${p.name}</b><span>${p.role}</span></div></div>`
+  const cards = t.map((p,i) =>
+    `<div class="fcard ${pos[i]}"><img class="ph" loading="lazy" src="${p.img}" alt="${p.name}"><div class="say">${p.short}</div><div class="meta"><b>${p.name}</b><span>${p.role}</span></div></div>`
   ).join('');
-  const mini = t.slice(0,3).map(p => `<img src="${p.img}" alt="">`).join('');
+  const mini = t.map(p => `<img src="${p.img}" alt="">`).join('');
   const bubble = `<div class="livebubble"><div class="lab"><i></i>Live discussion</div><q>“${q}”</q><div class="resp"><span class="mini">${mini}</span>3 specialists responding…</div></div>`;
   return cards + bubble;
 };
