@@ -57,9 +57,10 @@ const DESIGNS=[
 const seg=document.getElementById('seg'), frame=document.getElementById('frame'),
       stage=document.getElementById('stage'), openLink=document.getElementById('openLink');
 seg.innerHTML=DESIGNS.map(d=>`<button data-id="${d.id}" onclick="go('${d.id}')"><span class="n">${d.n}</span>${d.label}</button>`).join('');
+let cur=null;
 function go(id){
   const d=DESIGNS.find(x=>x.id===id)||DESIGNS[0];
-  if(frame.getAttribute('src')!==d.file){stage.classList.add('busy');frame.setAttribute('src',d.file);}
+  if(cur!==d.id){stage.classList.add('busy');frame.setAttribute('src',d.file+'?t='+Date.now());cur=d.id;} // cache-bust so each design always loads fresh
   openLink.setAttribute('href',d.file);
   document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.id===d.id));
   if(location.hash.slice(1)!==d.id)history.replaceState(null,'','#'+d.id);
