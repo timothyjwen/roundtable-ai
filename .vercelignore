@@ -1,0 +1,5 @@
+# Keep the deployed site clean — exclude local drafts / source extras
+Cher Landing Page.html
+landing-page_Draft_!.html
+roundtable-ai-copy-style.html
+.git
