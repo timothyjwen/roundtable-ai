@@ -21,7 +21,7 @@ window.RT = {
       { title: "Conversation. Follows your lead", body: "You can respond in real time, ask for another angle, or move the room toward what matters to you." }
     ],
     rosterTitle: "Assemble your panel",
-    rosterSub: "A few specialists, each with their own point of view. Pick the ones your question needs.",
+    rosterSub: "Many specialists, each with their distinct point of view.",
     demoTitle: "See a session unfold",
     closeTitle: "Pull up a chair.",
     closeSub: "Your first roundtable is free. No setup, no prompt-craft — just a question."
