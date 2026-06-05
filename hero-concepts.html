@@ -3,425 +3,70 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Roundtable AI — 5 Top-Module Concepts</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500;1,9..144,900&family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Roundtable — 5 design directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#ffffff; --bg-2:#f6f7f9; --card:#ffffff;
-  --ink:#0a0a0a; --ink-2:#374151; --muted:#6b7280; --faint:#9ca3af;
-  --line:rgba(10,10,12,.08); --line-2:rgba(10,10,12,.13);
-  --accent:#007aff; --accent-hover:#006ce0; --accent-soft:#e8f1ff;
-  --blue-tint:#cfe2ff; --cream:#e9f1ff; --sky:#d7e6fb; --lilac:#e4e9fb; --mint:#d8f1e8;
-  --health:#10b981; --art:#a855f7; --tech:#3b82f6; --fashion:#ec4899;
-  --tvbs:#dc2626;
-  --r:16px; --r-lg:26px;
-  --sh-sm:0 1px 2px rgba(10,10,12,.04),0 4px 14px -8px rgba(10,10,12,.1);
-  --sh-md:0 18px 48px -16px rgba(10,10,12,.16);
-  --sh-lg:0 40px 100px -30px rgba(10,10,12,.24);
-  --ease:cubic-bezier(.16,1,.3,1);
-}
+:root{--bar:54px;--ink:#1d1d1f;--soft:#6e6e73;--line:rgba(0,0,0,.12);--blue:#0071e3;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--bg-2)}::-webkit-scrollbar-thumb{background:#d4d8de;border-radius:6px}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.dsp,h1,h2,h3{font-family:'Fraunces',Georgia,serif}
-.mono{font-family:'DM Mono',ui-monospace,monospace;letter-spacing:.02em}
-.wrap{width:min(1180px,92vw);margin:0 auto;position:relative;z-index:2}
-section{position:relative}
-h1,h2,h3{letter-spacing:-.02em;line-height:1.04;font-weight:900;text-wrap:balance}
-h1{font-size:clamp(38px,5.2vw,70px)}
-.accent{color:var(--accent)}
-.it{font-style:italic;font-weight:500}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:'Inter',sans-serif}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,122,255,.14)}
-
-.aura{position:absolute;border-radius:50%;filter:blur(64px);opacity:.55;z-index:0;pointer-events:none;animation:drift 22s ease-in-out infinite alternate}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(24px,-22px) scale(1.08)}}
-
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:50px;font-weight:600;font-size:15px;padding:13px 24px;font-family:'Inter',sans-serif;transition:transform .25s var(--ease),box-shadow .25s ease,background .2s,border-color .2s}
-.btn-accent{background:var(--accent);color:#fff;box-shadow:0 10px 26px -10px rgba(0,122,255,.7)}
-.btn-accent:hover{transform:translateY(-2px);background:var(--accent-hover);box-shadow:0 16px 34px -12px rgba(0,122,255,.7)}
-.btn-soft{background:#fff;color:var(--ink);border:1.5px solid var(--line-2)}
-.btn-soft:hover{transform:translateY(-2px);border-color:var(--ink)}
-.btn-sm{padding:9px 18px;font-size:13.5px}
-
-/* ---- concept chooser bar ---- */
-.chooser{position:fixed;inset:0 0 auto 0;z-index:200;height:58px;display:flex;align-items:center;gap:14px;padding:0 clamp(16px,3vw,30px);background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
-.chooser .ch-brand{display:flex;align-items:center;gap:9px;flex:none}
-.chooser .ch-brand .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(140deg,#4f9dff,#007aff);display:grid;place-items:center;box-shadow:0 6px 16px -6px rgba(0,122,255,.6)}
-.chooser .ch-brand .mark svg{width:15px;height:15px;fill:#fff}
-.chooser .ch-brand b{font-size:14.5px;font-weight:800;font-family:'Inter Tight','Inter',sans-serif;white-space:nowrap}
-.ch-links{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-.ch-links::-webkit-scrollbar{display:none}
-.ch-links a{font-size:12px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:30px;white-space:nowrap;border:1px solid transparent;transition:.2s;font-family:'Inter',sans-serif}
-.ch-links a:hover{color:var(--ink);background:#fff;border-color:var(--line)}
-.ch-links a b{color:var(--accent);font-family:'DM Mono',monospace;margin-right:5px}
-
-/* ---- per-concept caption strip ---- */
-.meta{padding:78px 0 0}
-.meta .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;padding:16px 22px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;box-shadow:var(--sh-sm)}
-.meta .no{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);font-weight:600}
-.meta .nm{font-family:'Inter Tight','Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em}
-.meta .want{font-size:13px;color:var(--ink-2)}
-.meta .want b{color:var(--ink);font-weight:700}
-.meta .why{font-size:12.5px;color:var(--muted);flex-basis:100%;margin-top:2px}
-
-/* ---- HERO base ---- */
-.hero{padding:46px 0 74px;overflow:hidden;border-bottom:1px dashed var(--line-2)}
-.hero .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
-.hero h1{margin:18px 0 20px}
-.hero h1 .l2{display:block}
-.hero-sub{font-size:clamp(16px,1.2vw,18.5px);color:var(--ink-2);max-width:486px;font-weight:400;font-family:'Inter',sans-serif}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero-partner{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:12.5px;color:var(--muted);font-weight:500;flex-wrap:wrap;font-family:'Inter',sans-serif}
-.hero-partner .tvbs{background:var(--tvbs);color:#fff;font-weight:800;font-size:10.5px;letter-spacing:.05em;padding:3px 8px;border-radius:5px}
-.hero-partner .sep{width:4px;height:4px;border-radius:50%;background:var(--faint)}
-.hero-partner strong{color:var(--ink)}
-
-.hero .a1{width:540px;height:540px;background:radial-gradient(circle,var(--blue-tint),transparent 68%);top:-150px;right:-120px}
-.hero .a2{width:500px;height:500px;background:radial-gradient(circle,var(--sky),transparent 70%);top:60px;right:180px;animation-delay:-7s}
-.hero .a3{width:460px;height:460px;background:radial-gradient(circle,var(--lilac),transparent 70%);bottom:-180px;left:-120px;animation-delay:-12s}
-
-/* ===== VISUAL: orbiting table ===== */
-.table{position:relative;width:min(500px,94%);margin:0 auto;aspect-ratio:1}
-.table .felt{position:absolute;inset:17%;border-radius:50%;background:radial-gradient(circle at 50% 38%,var(--soft,#fff),#fff 80%);border:1px solid var(--line);box-shadow:inset 0 2px 18px rgba(0,0,0,.03),var(--sh-md)}
-.table .core{position:absolute;inset:0;display:grid;place-content:center;text-align:center;z-index:6;pointer-events:none;padding:0 18%}
-.table .core .badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--rc,var(--accent));margin-bottom:8px;justify-self:center;font-family:'Inter',sans-serif}
-.table .core .badge .d{width:6px;height:6px;border-radius:50%;background:var(--rc,var(--accent));animation:livep 1.5s ease-in-out infinite}
-@keyframes livep{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.5)}}
-.table .core .rt{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em;line-height:1.04}
-.table .core .rt small{display:block;font-size:12.5px;color:var(--muted);font-weight:500;margin-top:5px;letter-spacing:0;font-family:'Inter',sans-serif}
-.ring{position:absolute;inset:0;animation:spin var(--dur,56s) linear infinite}
-.seat{position:absolute;top:50%;left:50%;width:0;height:0}
-.seat .av{position:absolute;width:var(--avs,56px);aspect-ratio:1;border-radius:50%;left:0;top:0;transform:translate(-50%,-50%);overflow:hidden;background:var(--bg-2);border:3px solid #fff;box-shadow:0 8px 20px -6px rgba(0,0,0,.28);animation:spin-rev var(--dur,56s) linear infinite}
-.seat .av img{width:100%;height:100%;object-fit:cover}
-.seat.empty .av{border:2px dashed var(--accent);background:rgba(0,122,255,.07);display:grid;place-items:center;animation:spin-rev var(--dur,56s) linear infinite,glowpulse 2.4s ease-in-out infinite}
-.seat.empty .av span{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.06em}
-@keyframes glowpulse{0%,100%{box-shadow:0 0 0 0 rgba(0,122,255,.4)}50%{box-shadow:0 0 0 10px rgba(0,122,255,0)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spin-rev{to{transform:translate(-50%,-50%) rotate(-360deg)}}
-.table:hover .ring,.table:hover .seat .av{animation-play-state:paused}
-
-/* ===== VISUAL: portrait stack (spectacle) ===== */
-.showpiece{position:relative;aspect-ratio:1;width:min(540px,96%);margin:0 auto;display:grid;place-items:center}
-.showpiece .ellipse{position:absolute;inset:1%;border-radius:50%;background:radial-gradient(circle at 42% 34%,#e6f0ff,#eef3ff 42%,#e4ecfa 70%,transparent 78%);filter:blur(3px);opacity:.96}
-.showpiece .frame{position:absolute;inset:4%;border-radius:50%;border:1px solid rgba(10,10,12,.09)}
-.showpiece .frame::before{content:"";position:absolute;inset:8%;border-radius:50%;border:1px dashed rgba(10,10,12,.09)}
-.pstack{position:relative;width:80%;aspect-ratio:1.06;display:grid;place-items:center}
-.pcard{position:absolute;border-radius:22px;overflow:hidden;background:var(--bg-2);border:5px solid #fff;box-shadow:var(--sh-lg)}
-.pcard img{width:100%;height:100%;object-fit:cover}
-.pcard .nm{position:absolute;left:8px;bottom:8px;font-size:10.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.52);backdrop-filter:blur(6px);padding:3px 8px;border-radius:7px;font-family:'Inter',sans-serif}
-.pcard.main{width:52%;aspect-ratio:4/5;z-index:5;animation:bob 5.5s ease-in-out infinite}
-.pcard.main .spk{position:absolute;top:9px;left:9px;display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.05em;color:#fff;background:var(--accent);padding:3px 8px;border-radius:6px;font-family:'Inter',sans-serif}
-.pcard.main .spk i{width:5px;height:5px;border-radius:50%;background:#fff;animation:livep 1.4s ease-in-out infinite}
-.pcard.l{width:43%;aspect-ratio:4/5;left:0;transform:rotate(-8deg) translateY(9%);z-index:3}
-.pcard.r{width:43%;aspect-ratio:4/5;right:0;transform:rotate(8deg) translateY(12%);z-index:3}
-.float-chip{position:absolute;z-index:8;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 13px;box-shadow:var(--sh-md);font-size:12px;max-width:210px;animation:bob 4s ease-in-out infinite;font-family:'Inter',sans-serif}
-.float-chip.c1{top:0;left:-5%}
-.float-chip.c2{bottom:2%;right:-6%;animation-delay:-2s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.float-chip .lab{font-size:9.5px;color:var(--faint);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px}
-.float-chip .lab i{width:5px;height:5px;border-radius:50%;background:var(--art);display:block}
-.float-chip .q{font-weight:600;color:var(--ink-2);line-height:1.4}
-
-/* ===== VISUAL: contrast (truth) ===== */
-.contrast{display:grid;grid-template-columns:1fr;gap:14px;width:min(500px,96%);margin:0 auto}
-.ask3{background:var(--accent-soft);border:1px solid rgba(0,122,255,.22);border-radius:12px;padding:11px 15px;font-size:13px;font-weight:600;color:var(--ink-2);display:flex;gap:9px;align-items:center;flex-wrap:wrap;font-family:'Inter',sans-serif}
-.ask3 span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
-.cc{border-radius:20px;padding:16px 18px;border:1px solid var(--line);position:relative}
-.cc .tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif}
-.cc.one{background:var(--bg-2)}
-.cc.one .tag{color:var(--faint)}
-.cc.one .tag i{width:18px;height:18px;border-radius:6px;background:#cbd2dc;display:grid;place-items:center;font-size:10px}
-.cc.one .flat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px;color:var(--muted);line-height:1.55;font-family:'Inter',sans-serif}
-.cc.one .yes{display:inline-flex;gap:6px;font-size:11px;color:var(--faint);margin-top:9px;font-family:'Inter',sans-serif}
-.cc.many{background:#fff;box-shadow:var(--sh-md)}
-.cc.many .tag{color:var(--accent)}
-.cc.many .tag i{width:18px;height:18px;border-radius:6px;background:linear-gradient(140deg,#4f9dff,#007aff);display:grid;place-items:center}
-.cc.many .tag i svg{width:11px;height:11px;fill:#fff}
-.deb{display:flex;gap:9px;align-items:flex-start;margin-top:10px}
-.deb .av{width:30px;height:30px;border-radius:9px;flex:none;overflow:hidden;box-shadow:var(--sh-sm)}
-.deb .av img{width:100%;height:100%;object-fit:cover}
-.deb .bd{flex:1}
-.deb .who{font-size:10.5px;font-weight:700;color:var(--ink-2);margin-bottom:3px;font-family:'Inter',sans-serif}
-.deb .who em{font-style:normal;color:var(--art);font-weight:700}
-.deb .bub{font-size:13px;line-height:1.5;color:var(--ink-2);background:var(--bg-2);border:1px solid var(--line);border-radius:4px 12px 12px 12px;padding:8px 12px;font-family:'Inter',sans-serif}
-.deb.alt .bub{background:#fff;border-color:var(--line-2)}
-.vs{position:absolute;left:50%;top:calc(50% - 14px);transform:translate(-50%,-50%);z-index:3;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800;font-family:'Inter Tight','Inter',sans-serif;box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
-
-/* ===== VISUAL (Concept 5): dark luxe invitation ===== */
-.lux{background:#0b0c10;color:#e8eaf0;padding:60px 0 88px;overflow:hidden;border-bottom:none}
-.lux .glow{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,.30),transparent 64%);top:-180px;right:-130px;filter:blur(50px);z-index:0;pointer-events:none}
-.lux .glow2{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(160,180,220,.14),transparent 70%);bottom:-200px;left:-140px;filter:blur(50px);z-index:0;pointer-events:none}
-.lux .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
-.lux .eyebrow{color:#8b94a6}
-.lux .eyebrow .dot{background:#6ea8ff;box-shadow:0 0 0 4px rgba(110,168,255,.16)}
-.lux h1{color:#f4f6fb;margin:18px 0 20px}
-.lux h1 .it{color:#86b6ff}
-.lux .hero-sub{color:#aab2c2}
-.lux .hero-partner{color:#7e8799}
-.lux .hero-partner strong{color:#e8eaf0}
-.lux .btn-soft{background:transparent;color:#e8eaf0;border:1.5px solid rgba(255,255,255,.2)}
-.lux .btn-soft:hover{border-color:#fff}
-.invite{position:relative;width:min(440px,94%);margin:0 auto;background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.13);border-radius:24px;padding:24px 24px 20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 50px 110px -30px rgba(0,0,0,.85);animation:bob 6s ease-in-out infinite}
-.invite::after{content:"";position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(160deg,rgba(255,255,255,.4),transparent 42%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.invite .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.invite .wm{display:flex;align-items:center;gap:9px}
-.invite .wm .mk{width:28px;height:28px;border-radius:8px;background:linear-gradient(140deg,#4f9dff,#007aff);display:grid;place-items:center;box-shadow:0 6px 16px -6px rgba(0,122,255,.7)}
-.invite .wm .mk svg{width:15px;height:15px;fill:#fff}
-.invite .wm b{font-family:'Fraunces',serif;font-size:15.5px;letter-spacing:.01em;color:#fff;font-weight:600}
-.invite .members{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;color:#9aa3b4;border:1px solid rgba(255,255,255,.16);padding:5px 9px;border-radius:30px}
-.invite .seated{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:23px;color:#eef1f7;line-height:1.2;margin:6px 0 18px;letter-spacing:-.01em}
-.invite .trio{display:flex;gap:12px;margin-bottom:20px}
-.invite .vip{flex:1;text-align:center}
-.invite .vip .ph{width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.18);position:relative;box-shadow:0 14px 30px -14px rgba(0,0,0,.7)}
-.invite .vip .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.18) contrast(1.02)}
-.invite .vip .ph::after{content:"";position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-.invite .vip .nm{font-size:11px;font-weight:600;color:#e3e7f0;margin-top:8px;font-family:'Inter',sans-serif}
-.invite .vip .rl{font-size:9px;color:#8b94a6;letter-spacing:.02em;font-family:'Inter',sans-serif;text-transform:uppercase;margin-top:1px}
-.invite .foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.1);padding-top:13px}
-.invite .no{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.13em;color:#8b94a6}
-.invite .req{font-size:12px;font-weight:600;color:#9fc6ff;display:inline-flex;gap:6px;align-items:center;font-family:'Inter',sans-serif}
-
-@media(max-width:880px){
-  .hero .grid,.lux .grid{grid-template-columns:1fr;gap:30px}
-  .hero .vis,.lux .vis{order:-1}
-  .float-chip{display:none}
-  .meta .wrap{flex-direction:column;gap:6px}
-}
-@media(prefers-reduced-motion:reduce){.ring,.seat .av,.aura,.float-chip,.pcard.main,.invite{animation:none!important}}
+body{font-family:Inter,-apple-system,system-ui,sans-serif;background:#e9e9ec;color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.topbar{position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:10;display:flex;align-items:center;gap:16px;
+  padding:0 clamp(10px,2vw,18px);background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;flex:none}
+.brand .mk{width:26px;height:26px;border-radius:8px;background:linear-gradient(140deg,#4f9dff,#0071e3);display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(0,113,227,.6)}
+.brand .mk svg{width:14px;height:14px;fill:#fff}
+.brand b{font-size:14.5px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.brand .tag{font-size:11px;color:var(--soft);white-space:nowrap}
+.seg{display:flex;gap:4px;margin:0 auto;background:#f0f0f3;border:1px solid var(--line);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.seg::-webkit-scrollbar{display:none}
+.seg button{display:flex;align-items:baseline;gap:7px;font:inherit;font-size:13px;font-weight:600;color:var(--soft);background:none;border:0;cursor:pointer;padding:7px 15px;border-radius:999px;white-space:nowrap;transition:.2s var(--ease)}
+.seg button .n{font-size:10px;font-weight:700;color:#b5b5bd;font-variant-numeric:tabular-nums}
+.seg button:hover{color:var(--ink)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06),0 4px 12px -6px rgba(0,0,0,.25)}
+.seg button.on .n{color:var(--blue)}
+.open{flex:none;font-size:12px;font-weight:600;color:var(--blue);padding:7px 12px;border-radius:8px;white-space:nowrap}
+.open:hover{background:#eef4ff}
+.stage{position:fixed;top:var(--bar);left:0;right:0;bottom:0;background:#fff}
+.stage iframe{width:100%;height:100%;border:0;display:block}
+.stage .load{position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-size:13px;pointer-events:none;opacity:0;transition:opacity .2s}
+.stage.busy .load{opacity:1}
+@media(max-width:720px){.brand .tag{display:none}.seg button{padding:7px 11px;font-size:12px}}
 </style>
 </head>
 <body>
-
-<div class="chooser">
-  <a href="#top" class="ch-brand">
-    <span class="mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.2" r="2"/><circle cx="12" cy="19.8" r="2"/><circle cx="4.2" cy="8" r="2"/><circle cx="19.8" cy="8" r="2"/><circle cx="4.2" cy="16" r="2"/><circle cx="19.8" cy="16" r="2"/></svg></span>
-    <b>Roundtable<span class="accent"> AI</span></b>
+<div class="topbar">
+  <a class="brand" href="#" onclick="go('apple');return false">
+    <span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.2" r="2"/><circle cx="12" cy="19.8" r="2"/><circle cx="4.2" cy="8" r="2"/><circle cx="19.8" cy="8" r="2"/><circle cx="4.2" cy="16" r="2"/><circle cx="19.8" cy="16" r="2"/></svg></span>
+    <b>Roundtable</b><span class="tag">· 5 design directions</span>
   </a>
-  <nav class="ch-links">
-    <a href="#c1"><b>01</b>Safety in numbers</a>
-    <a href="#c2"><b>02</b>Spectacle</a>
-    <a href="#c3"><b>03</b>Tells the truth</a>
-    <a href="#c4"><b>04</b>Table for three</a>
-    <a href="#c5"><b>05</b>Members only</a>
-  </nav>
+  <div class="seg" id="seg"></div>
+  <a class="open" id="openLink" target="_blank" rel="noopener">Open ↗</a>
 </div>
-
-<main id="top">
-
-<!-- ========== CONCEPT 1 — SAFETY IN NUMBERS ========== -->
-<div class="meta" id="c1"><div class="wrap">
-  <span class="no">CONCEPT 01</span><span class="nm">Safety in numbers</span>
-  <span class="want">Consumer want: <b>de-risk my decision — I don't want to bet on one opinion.</b></span>
-  <span class="why">Sells trust. The signature angle: plurality as the proof. Safest, broadest, most defensible positioning.</span>
-</div></div>
-<section class="hero">
-  <span class="aura a1"></span><span class="aura a2"></span><span class="aura a3"></span>
-  <div class="wrap grid">
-    <div class="lead">
-      <span class="eyebrow"><span class="dot"></span>Multi-expert AI · Live</span>
-      <h1>Don't ask one AI.<span class="l2">Ask the <span class="accent it">whole roundtable.</span></span></h1>
-      <p class="hero-sub">Bring one question. A panel of AI experts debates it live — challenging each other until you walk away with an answer you can actually trust.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-accent">Explore the rooms</a>
-        <a href="#" class="btn btn-soft">See a live debate</a>
-      </div>
-      <div class="hero-partner"><span>Health room with</span><span class="tvbs">TVBS</span><span class="sep"></span><span>Powered by <strong>VIVE</strong></span></div>
-    </div>
-    <div class="vis"><div class="table" id="table1" style="--soft:#fff;--rc:var(--accent);--dur:54s"></div></div>
-  </div>
-</section>
-
-<!-- ========== CONCEPT 2 — SPECTACLE ========== -->
-<div class="meta" id="c2"><div class="wrap">
-  <span class="no">CONCEPT 02</span><span class="nm">Spectacle &amp; curiosity</span>
-  <span class="want">Consumer want: <b>entertain me — let me eavesdrop on brilliant minds.</b></span>
-  <span class="why">Sells delight. Leads with the famous personas (van Gogh, da Vinci). Most shareable / viral; best top-of-funnel hook.</span>
-</div></div>
-<section class="hero">
-  <span class="aura a1"></span><span class="aura a3"></span>
-  <div class="wrap grid">
-    <div class="lead">
-      <span class="eyebrow"><span class="dot"></span>55 legendary minds · 4 rooms</span>
-      <h1>Watch da&nbsp;Vinci and van&nbsp;Gogh <span class="accent it">argue about your question.</span></h1>
-      <p class="hero-sub">Pull up a seat to the most fascinating table in history. Artists, doctors, technologists and designers — thinking out loud, debating each other, just for you.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-accent">Eavesdrop on a debate</a>
-        <a href="#" class="btn btn-soft">Meet the table</a>
-      </div>
-      <div class="hero-partner"><span>Health room with</span><span class="tvbs">TVBS</span><span class="sep"></span><span>Powered by <strong>VIVE</strong></span></div>
-    </div>
-    <div class="vis">
-      <div class="showpiece" id="show2">
-        <div class="ellipse"></div><div class="frame"></div>
-        <div class="pstack" id="pstack2"></div>
-        <div class="float-chip c1"><div class="lab"><i></i>Live · Art room</div><div class="q">"Green is myth before it's optics."</div></div>
-        <div class="float-chip c2"><div class="lab"><i></i>Now speaking</div><div class="q">van Gogh just challenged Seurat.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CONCEPT 3 — TELLS THE TRUTH ========== -->
-<div class="meta" id="c3"><div class="wrap">
-  <span class="no">CONCEPT 03</span><span class="nm">It tells you the truth</span>
-  <span class="want">Consumer want: <b>stop flattering me — show me what I'm missing.</b></span>
-  <span class="why">Sells honesty. Sharpest contrast vs. ChatGPT &amp; co. Riskier, more opinionated — strongest for AI-savvy skeptics.</span>
-</div></div>
-<section class="hero">
-  <span class="aura a1"></span><span class="aura a2"></span>
-  <div class="wrap grid">
-    <div class="lead">
-      <span class="eyebrow"><span class="dot"></span>AI that pushes back</span>
-      <h1>One AI agrees with you.<span class="l2">A roundtable <span class="accent it">tells you the truth.</span></span></h1>
-      <p class="hero-sub">A single assistant flatters and folds. A panel checks each other — surfacing the risk, the counter-argument, the thing you didn't want to hear but needed to.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-accent">Hear the other side</a>
-        <a href="#" class="btn btn-soft">See it argue</a>
-      </div>
-      <div class="hero-partner"><span>Health room with</span><span class="tvbs">TVBS</span><span class="sep"></span><span>Powered by <strong>VIVE</strong></span></div>
-    </div>
-    <div class="vis">
-      <div class="contrast" id="contrast3">
-        <div class="ask3"><span>🎯 You asked</span>"Should I raise funding before or after launching?"</div>
-        <div class="cc one">
-          <div class="tag"><i>🤖</i>One assistant</div>
-          <div class="flat">"Great question! Raising now sounds like the right call — investors love momentum, so go for it. 👍"</div>
-          <div class="yes">✓ agrees &nbsp;✓ agrees &nbsp;✓ agrees</div>
-        </div>
-        <div class="vs">VS</div>
-        <div class="cc many">
-          <div class="tag"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.2" r="2"/><circle cx="12" cy="19.8" r="2"/><circle cx="4.2" cy="8" r="2"/><circle cx="19.8" cy="8" r="2"/><circle cx="4.2" cy="16" r="2"/><circle cx="19.8" cy="16" r="2"/></svg></i>The roundtable</div>
-          <div class="deb" id="deb3a"></div>
-          <div class="deb alt" id="deb3b"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CONCEPT 4 — TABLE FOR THREE ========== -->
-<div class="meta" id="c4"><div class="wrap">
-  <span class="no">CONCEPT 04</span><span class="nm">A table for three</span>
-  <span class="want">Consumer want: <b>give me access — an intimate room with the experts, not a crowd.</b></span>
-  <span class="why">Sells aspiration &amp; belonging. Deliberately exclusive: two world-class minds and your open chair. Warmest, most premium-feeling of the light concepts.</span>
-</div></div>
-<section class="hero">
-  <span class="aura a1"></span><span class="aura a3"></span>
-  <div class="wrap grid">
-    <div class="lead">
-      <span class="eyebrow"><span class="dot"></span>A seat is open</span>
-      <h1>Two of the world's experts.<span class="l2">And a chair with <span class="accent it">your name on it.</span></span></h1>
-      <p class="hero-sub">No network, no budget, no introduction. It's a table for three — them, and you. Sit down, ask your question, and the room turns to face you.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-accent">Take your seat</a>
-        <a href="#" class="btn btn-soft">Tour the rooms</a>
-      </div>
-      <div class="hero-partner"><span>Health room with</span><span class="tvbs">TVBS</span><span class="sep"></span><span>Powered by <strong>VIVE</strong></span></div>
-    </div>
-    <div class="vis"><div class="table" id="table4" style="--soft:#f7faff;--rc:var(--accent);--dur:64s;--avs:96px"></div></div>
-  </div>
-</section>
-
-<!-- ========== CONCEPT 5 — MEMBERS ONLY (dark luxe) ========== -->
-<div class="meta" id="c5"><div class="wrap">
-  <span class="no">CONCEPT 05</span><span class="nm">Members only — the premium tier</span>
-  <span class="want">Consumer want: <b>status &amp; certainty — make me feel chosen, and handled.</b></span>
-  <span class="why">The high-end play: dark, restrained, invitation-only. A standing private council rather than a tool. Best frame for a paid membership / concierge offering.</span>
-</div></div>
-<section class="hero lux">
-  <span class="glow"></span><span class="glow2"></span>
-  <div class="wrap grid">
-    <div class="lead">
-      <span class="eyebrow"><span class="dot"></span>Roundtable Black · By invitation</span>
-      <h1>Some tables you don't ask to join.<span class="l2"><span class="it">You're invited.</span></span></h1>
-      <p class="hero-sub">A standing council of world-class minds, kept on call. Concierge sessions, your chosen experts, and the brief delivered — often before you think to ask.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-accent">Request an invitation</a>
-        <a href="#" class="btn btn-soft">How membership works</a>
-      </div>
-      <div class="hero-partner"><span>By invitation</span><span class="sep"></span><span>Powered by <strong>VIVE</strong></span></div>
-    </div>
-    <div class="vis">
-      <div class="invite" id="invite5"></div>
-    </div>
-  </div>
-</section>
-
-</main>
-
+<div class="stage busy" id="stage">
+  <div class="load">Loading…</div>
+  <iframe id="frame" title="design preview" onload="document.getElementById('stage').classList.remove('busy')"></iframe>
+</div>
 <script>
-/* Avatars are bundled locally in ./avatars/ so the page never depends on the
-   (sometimes-blocked) doppel-*.zeabur.app endpoints. */
-const AV={
-  health:id=>`avatars/${id}`,
-  art:id=>`avatars/${id}`,
-  tech:id=>`avatars/${id}`,
-  fashion:id=>`avatars/${id}`
-};
-const HEALTH=[['沈露西',AV.health('aa856c73-9438-4a98-9ecb-00adeec575d0-1780375727149.png')],['林安娜',AV.health('63841b56-3674-4c5e-bf84-f66b30024725-1780373626715.png')],['賴珊蒂',AV.health('8463a8dc-5ed1-4eb9-be30-a6078f70d952-1780374722221.png')],['宋艾倫',AV.health('424fb0ae-d2de-4f24-acea-146186ee3271-1780374681611.png')],['白大衛',AV.health('518e4b8b-31df-45fa-8395-3f64ed919ccc-1780374890238.png')],['郭馬克',AV.health('ddd73f22-2d09-4328-94f2-333ddb14685d-1780374914053.png')],['周丹尼',AV.health('3de05046-191b-4776-86d0-04187d9c9388-1780374652294.png')],['林珍妮',AV.health('be7b273d-d444-4223-b5b7-c4241f1f9699-1780374943092.png')]];
-const ART=[['Clara Hsu','Moderator',AV.art('d605529a-5bd1-4df9-a74b-b54f69d491a7-1779101561622.jpg')],['van Gogh','Post-Impressionism',AV.art('578d2c36-3bea-4b67-98c8-e310745eb120-1779101575791.jpg')],['da Vinci','Renaissance',AV.art('092e295d-3b0d-4fe8-894c-ce09de8503e3-1779101557820.jpg')],['Frida Kahlo','Modern',AV.art('a23f4b21-0384-4bd9-9af9-777b71f5b85a-1779101568128.jpg')],['Monet','Impressionism',AV.art('cd833c65-7585-4822-935d-9d56d7043326-1778734823876.png')],['Klimt','Symbolism',AV.art('d7eaa999-325c-4fe4-ab88-f9974ba9d26d-1778741893623.jpg')],['Seurat','Pointillism',AV.art('6f3ec7dd-f803-4510-b343-2ac555f493a7-1779101563168.jpg')],['Hokusai','Ukiyo-e',AV.art('ca47eae9-e67c-4275-a3db-cdeef7bcf5ab-1779101570743.jpg')]];
-const TECH=[['Eunji Choi',AV.tech('1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg')],['Marco Reyes',AV.tech('54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg')],['James Wei',AV.tech('826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg')],['Elias Varga',AV.tech('680343c8-ba7d-4bc4-8c24-554002301197-1778828752853.jpg')],['Rei Klein',AV.tech('c58d407d-4851-406d-abc1-714dce6e0fe2-1778828259569.jpg')],['Dana Mercer',AV.tech('7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg')]];
-const FASHION=[['Vivienne',AV.fashion('5d1eeb06-cd43-4b79-b227-1570efb0fe7a-1779118893633.jpg')],['Isabella',AV.fashion('6c2df207-1356-467c-989e-888c0d731d6f-1779118859686.jpg')],['Edoardo',AV.fashion('9a9b709f-7f5a-410c-a151-8a59dd280915-1779118851201.jpg')],['Shane',AV.fashion('399cd3d5-6352-4ab3-8552-e92669463e00-1779118052583.jpg')],['Coco',AV.fashion('2f3c5601-4202-4c5f-af3b-40cbe48c0a3b-1779118876772.jpg')],['Camille',AV.fashion('2614c849-d55c-436b-9ecc-494411fd05e3-1779118919189.jpg')]];
-
-const byName=n=>ART.find(m=>m[0]===n);
-
-function buildTable(elId,opts){
-  const seats=opts.seats; const n=seats.length; const R=opts.R||42;
-  let inner=`<div class="felt"></div><div class="ring">`;
-  inner+=seats.map((m,i)=>{const ang=(i/n)*2*Math.PI-Math.PI/2;const x=(50+R*Math.cos(ang)).toFixed(2);const y=(50+R*Math.sin(ang)).toFixed(2);
-    if(m.empty){return `<div class="seat empty" style="left:${x}%;top:${y}%"><div class="av"><span>YOU</span></div></div>`;}
-    return `<div class="seat" style="left:${x}%;top:${y}%"><div class="av"><img loading="lazy" src="${m[1]}" alt="${m[0]}"></div></div>`;
-  }).join('');
-  inner+=`</div><div class="core"><span class="badge"><span class="d"></span>${opts.badge||'Live now'}</span><span class="rt">${opts.title}<small>${opts.sub}</small></span></div>`;
-  document.getElementById(elId).innerHTML=inner;
+const DESIGNS=[
+  {id:'apple', n:'01', label:'Apple',  file:'design-apple.html'},
+  {id:'swiss', n:'02', label:'Swiss',  file:'design-1-swiss.html'},
+  {id:'warm',  n:'03', label:'Warm',   file:'design-warm.html'},
+  {id:'vivid', n:'04', label:'Vivid',  file:'design-vivid.html'},
+  {id:'glass', n:'05', label:'Glass',  file:'design-glass.html'}
+];
+const seg=document.getElementById('seg'), frame=document.getElementById('frame'),
+      stage=document.getElementById('stage'), openLink=document.getElementById('openLink');
+seg.innerHTML=DESIGNS.map(d=>`<button data-id="${d.id}" onclick="go('${d.id}')"><span class="n">${d.n}</span>${d.label}</button>`).join('');
+function go(id){
+  const d=DESIGNS.find(x=>x.id===id)||DESIGNS[0];
+  if(frame.getAttribute('src')!==d.file){stage.classList.add('busy');frame.setAttribute('src',d.file);}
+  openLink.setAttribute('href',d.file);
+  document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.id===d.id));
+  if(location.hash.slice(1)!==d.id)history.replaceState(null,'','#'+d.id);
+  document.title='Roundtable — '+d.label+' design';
 }
-
-/* C1 — full mixed expert table (the crowd) */
-buildTable('table1',{
-  title:'4 rooms.<br>55 experts.',sub:'health · art · tech · fashion',
-  seats:[HEALTH[0],ART[1],TECH[0],FASHION[1],HEALTH[4],ART[5],TECH[2],FASHION[3]].map(m=>[m[0],m[m.length-1]])
-});
-
-/* C4 — intimate table for three: 2 experts + your open chair */
-buildTable('table4',{
-  badge:'Live now',title:'A table<br>for three',sub:'two minds · your chair',
-  seats:[{empty:true},[ART[2][0],ART[2][2]],[HEALTH[4][0],HEALTH[4][1]]]
-});
-
-/* C2 — portrait stack of legends */
-(function(){
-  const main=byName('da Vinci'), l=byName('van Gogh'), r=byName('Frida Kahlo');
-  document.getElementById('pstack2').innerHTML=
-    `<div class="pcard l"><img loading="lazy" src="${l[2]}" alt="${l[0]}"><span class="nm">${l[0]}</span></div>`+
-    `<div class="pcard r"><img loading="lazy" src="${r[2]}" alt="${r[0]}"><span class="nm">${r[0]}</span></div>`+
-    `<div class="pcard main"><img src="${main[2]}" alt="${main[0]}"><span class="spk"><i></i>SPEAKING</span><span class="nm">${main[0]}</span></div>`;
-})();
-
-/* C3 — two tech/finance experts disagreeing on the funding question */
-(function(){
-  const a=['James Wei','Tech Strategy',TECH[2][1]];      // raise after
-  const b=['Marco Reyes','Venture Capital',TECH[1][1]];  // raise before
-  document.getElementById('deb3a').innerHTML=`<div class="av"><img src="${a[2]}" alt=""></div><div class="bd"><div class="who"><em style="color:var(--tech)">${a[0]}</em> · ${a[1]}</div><div class="bub">"Raise <strong>after</strong>. Land 10 paying customers first — traction makes every investor pitch easier, and revenue is the best story you've got."</div></div>`;
-  document.getElementById('deb3b').innerHTML=`<div class="av"><img src="${b[2]}" alt=""></div><div class="bd"><div class="who"><em style="color:var(--tech)">${b[0]}</em> · ${b[1]}</div><div class="bub">"I'd push back. If you're capital-intensive, raise <strong>before</strong> — waiting on revenue can mean shipping a weaker product into a closing window."</div></div>`;
-})();
-
-/* C5 — Roundtable Black invitation card */
-(function(){
-  const vips=[['da Vinci','Renaissance',byName('da Vinci')[2]],['Eunji Choi','Robotics AI',TECH[0][1]],['Isabella','Haute Couture',FASHION[1][1]]];
-  const cells=vips.map(v=>`<div class="vip"><div class="ph"><img loading="lazy" src="${v[2]}" alt="${v[0]}"></div><div class="nm">${v[0]}</div><div class="rl">${v[1]}</div></div>`).join('');
-  document.getElementById('invite5').innerHTML=
-    `<div class="top"><div class="wm"><span class="mk"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.2" r="2"/><circle cx="12" cy="19.8" r="2"/><circle cx="4.2" cy="8" r="2"/><circle cx="19.8" cy="8" r="2"/><circle cx="4.2" cy="16" r="2"/><circle cx="19.8" cy="16" r="2"/></svg></span><b>Roundtable Black</b></div><span class="members">MEMBERS ONLY</span></div>`+
-    `<div class="seated">Your council is seated.</div>`+
-    `<div class="trio">${cells}</div>`+
-    `<div class="foot"><span class="no">MEMBER · No. 001 · EST. MMXXVI</span><span class="req">Request access →</span></div>`;
-})();
+go((location.hash.slice(1))||'apple');
+addEventListener('hashchange',()=>go(location.hash.slice(1)));
 </script>
 </body>
 </html>

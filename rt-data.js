@@ -13,6 +13,13 @@ window.RT = {
       { n: "02", title: "Ask your question", body: "Plain language. A decision, a creative problem, a grey area — the sharper the question, the richer the debate." },
       { n: "03", title: "Watch them debate", body: "They challenge each other, then synthesise the useful parts into one clear direction." }
     ],
+    whyTitle: "One question. Every angle.",
+    whySub: "A single AI gives you one voice. Roundtable turns your question into a live discussion — so you hear the angles before you decide what you think.",
+    why: [
+      { title: "Generative discussion", body: "Not a static answer. Ideas get introduced, challenged, and refined in real time — easier to follow than a wall of text." },
+      { title: "Expert perspectives", body: "Each specialist argues from a distinct point of view, so fewer angles slip past you." },
+      { title: "Both sides, then yours", body: "Hear the debate from every side, then come to your own conclusion. You stay the decision-maker." }
+    ],
     rosterTitle: "Assemble your panel",
     rosterSub: "A few specialists, each with their own point of view. Pick the ones your question needs.",
     demoTitle: "See a session unfold",

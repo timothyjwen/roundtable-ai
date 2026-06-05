@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Roundtable — Warm Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f2e9;--paper2:#f1ead8;--card:#fffdf8;--ink:#2a241d;--soft:#6f675a;--faint:#a59a86;
+  --line:rgba(42,36,29,.14);--gold:#b0863a;--gold-soft:#efe3cb;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f7f2e9;color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.serif{font-family:'Fraunces',Georgia,serif}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.04;text-wrap:balance}
+.r{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s var(--ease)}.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.eyebrow{font-family:Inter;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px}
+.eyebrow:before,.eyebrow:after{content:"";width:24px;height:1px;background:var(--gold);opacity:.5}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:Inter;font-weight:600;font-size:14.5px;padding:13px 26px;border-radius:4px;transition:.25s var(--ease)}
+.btn.fill{background:var(--ink);color:var(--paper)}.btn.fill:hover{background:var(--gold)}
+.btn.line{border:1px solid var(--line);color:var(--ink)}.btn.line:hover{border-color:var(--ink)}
+.hr{height:1px;background:var(--line)}
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:60;height:62px;display:flex;align-items:center;background:rgba(247,242,233,.86);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+nav b{font-family:'Fraunces';font-weight:600;font-size:21px;letter-spacing:-.01em}
+nav .lk{display:flex;gap:30px;font-family:Inter;font-size:13px;color:var(--soft)}nav .lk a:hover{color:var(--gold)}
+/* hero */
+.hero{padding:128px 0 70px}
+.hero .grid{display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center}
+.hero h1{font-size:clamp(48px,6.6vw,92px);font-weight:600;margin:22px 0 0}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero .sub{font-size:19px;line-height:1.6;color:var(--soft);max-width:440px;margin:24px 0 32px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+/* hero portrait trio */
+.trio{position:relative;height:clamp(360px,42vw,480px)}
+.fr{position:absolute;border-radius:6px;overflow:hidden;background:var(--card);border:6px solid var(--card);box-shadow:0 30px 70px -34px rgba(42,36,29,.5)}
+.fr img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.04)}
+.fr .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(42,36,29,.78);color:var(--paper);font-family:Inter;font-size:10px;letter-spacing:.04em;padding:5px 8px;display:flex;justify-content:space-between}
+.fr.a{width:46%;aspect-ratio:3/4;left:2%;top:8%;z-index:2;transform:rotate(-3deg)}
+.fr.b{width:42%;aspect-ratio:3/4;right:4%;top:0;z-index:3;transform:rotate(2deg)}
+.fr.c{width:40%;aspect-ratio:3/4;left:30%;bottom:0;z-index:4;transform:rotate(-1deg)}
+.gold-seal{position:absolute;right:0;top:42%;z-index:5;width:84px;height:84px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;text-align:center;background:var(--paper);font-family:Inter;font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.4}
+/* sections */
+.sec{padding:clamp(80px,10vw,128px) 0}
+.kicker{font-family:Inter;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.shead{margin-bottom:54px}
+.shead h2{font-size:clamp(34px,4.6vw,60px);font-weight:600;margin-top:14px;max-width:16ch}
+.shead.center{text-align:center}.shead.center h2{margin-left:auto;margin-right:auto}
+.shead p{color:var(--soft);font-size:18px;margin-top:14px;max-width:52ch;line-height:1.6}
+.shead.center p{margin-left:auto;margin-right:auto}
+/* why list */
+.whylist{display:grid;gap:0;border-top:1px solid var(--line)}
+.wrow{display:grid;grid-template-columns:60px 1fr 1.2fr;gap:30px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--line)}
+.wrow .no{font-family:'Fraunces';font-size:26px;color:var(--gold);font-weight:500}
+.wrow h3{font-size:clamp(24px,2.5vw,34px);font-weight:600}
+.wrow p{color:var(--soft);font-size:16px;line-height:1.62}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.stp{padding-top:24px;border-top:2px solid var(--ink)}
+.stp .n{font-family:Inter;font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--gold)}
+.stp h3{font-size:24px;margin:14px 0 9px}.stp p{color:var(--soft);font-size:15.5px;line-height:1.62}
+/* demo */
+.demo{background:var(--ink);color:var(--paper)}
+.demo .kicker{color:#e6b35e}.demo .shead h2{color:var(--paper)}
+.q{font-family:'Fraunces';font-style:italic;font-size:clamp(24px,3vw,38px);font-weight:500;line-height:1.25;max-width:760px;margin-bottom:36px;color:#f3ead8}
+.q small{display:block;font-family:Inter;font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c9a25a;margin-bottom:14px;font-weight:600}
+.turn{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:24px 0;border-top:1px solid rgba(247,242,233,.18);align-items:start;max-width:780px}
+.turn img{width:56px;height:56px;border-radius:50%;object-fit:cover;filter:sepia(.15)}
+.turn .who{font-family:Inter;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}.turn .who span{color:rgba(247,242,233,.5)}
+.turn p{font-size:17px;line-height:1.55;color:rgba(247,242,233,.9);max-width:560px}.turn em{font-style:italic;color:#e6b35e}
+/* roster */
+.roster{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.face .ph{aspect-ratio:3/4;border-radius:5px;overflow:hidden;border:5px solid var(--card);box-shadow:0 22px 50px -28px rgba(42,36,29,.5)}
+.face .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.1) saturate(1.04);transition:.5s var(--ease)}
+.face:hover .ph img{filter:sepia(0)}
+.face b{font-family:'Fraunces';display:block;font-size:18px;font-weight:600;margin-top:14px}.face span{font-family:Inter;font-size:12.5px;color:var(--soft)}
+/* close */
+.close{text-align:center;padding:clamp(90px,11vw,140px) 0}
+.close h2{font-size:clamp(44px,6.4vw,86px);font-weight:600}.close h2 em{font-style:italic;color:var(--gold)}
+.close p{color:var(--soft);font-size:18px;margin:18px auto 30px;max-width:440px}
+footer{border-top:1px solid var(--line);padding:28px 0;font-family:Inter;font-size:12px;color:var(--faint)}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:880px){nav .lk{display:none}.hero .grid,.steps{grid-template-columns:1fr}.trio{order:-1}.wrow{grid-template-columns:40px 1fr;gap:14px}.wrow p{grid-column:1/-1}.roster{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap"><b>Roundtable</b><div class="lk"><a href="#why">Why</a><a href="#how">How it works</a><a href="#agents">Agents</a><a href="#start" style="color:var(--gold)">Start →</a></div></div></nav>
+
+<main>
+  <header class="hero"><div class="wrap grid">
+    <div>
+      <span class="eyebrow r">Multi-expert AI</span>
+      <h1 class="r d1" id="h1"></h1>
+      <p class="sub r d2" id="sub"></p>
+      <div class="ctas r d3"><a class="btn fill" href="#agents" id="cta1"></a><a class="btn line" href="#how" id="cta2"></a></div>
+    </div>
+    <div class="trio r d2" id="trio"></div>
+  </div></header>
+
+  <section class="sec wrap" id="why">
+    <div class="shead r"><span class="kicker">Why a roundtable</span><h2 id="whyTitle"></h2><p id="whySub"></p></div>
+    <div class="whylist" id="whylist"></div>
+  </section>
+
+  <section class="sec wrap" id="how">
+    <div class="shead r"><span class="kicker">The process</span><h2>Three steps to a sharper answer.</h2></div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <section class="demo sec" id="demo"><div class="wrap">
+    <div class="shead r"><span class="kicker">In the room</span><h2 id="demoTitle"></h2></div>
+    <div class="q r d1" id="q"></div>
+    <div id="turns"></div>
+  </div></section>
+
+  <section class="sec wrap" id="agents">
+    <div class="shead center r"><span class="kicker">The panel</span><h2 id="rosterTitle"></h2><p id="rosterSub"></p></div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section class="close" id="start"><div class="wrap">
+    <h2 class="r" id="closeTitle"></h2><p class="r d1" id="closeSub"></p>
+    <a class="btn fill r d2" href="#" style="padding:15px 30px">Start a session</a>
+  </div></section>
+</main>
+<footer><div class="wrap foot"><span>Roundtable · Multi-expert AI</span><span>AI-generated discussions for exploration. Not professional advice.</span></div></footer>
+
+<script src="rt-data.js"></script>
+<script>
+const C=RT.copy;
+h1.innerHTML=C.h1.replace('roundtable','<em>roundtable</em>'); sub.textContent=C.sub;
+cta1.textContent=C.ctaPrimary; cta2.textContent=C.ctaSecondary;
+whyTitle.textContent=C.whyTitle; whySub.textContent=C.whySub;
+demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
+closeTitle.innerHTML=C.closeTitle.replace('chair','<em>chair</em>'); closeSub.textContent=C.closeSub;
+// trio
+const t=RT.roster;
+trio.innerHTML=`<div class="fr a"><img loading="lazy" src="${t[3].img}" alt="${t[3].name}"><span class="cap"><b>${t[3].name}</b><span>${t[3].role}</span></span></div>`+
+  `<div class="fr b"><img loading="lazy" src="${t[2].img}" alt="${t[2].name}"><span class="cap"><b>${t[2].name}</b><span>${t[2].role}</span></span></div>`+
+  `<div class="fr c"><img loading="lazy" src="${t[0].img}" alt="${t[0].name}"><span class="cap"><b>${t[0].name}</b><span>${t[0].role}</span></span></div>`+
+  `<div class="gold-seal">Est.<br>2026</div>`;
+whylist.innerHTML=C.why.map((w,i)=>`<div class="wrow"><div class="no">0${i+1}</div><h3>${w.title}</h3><p>${w.body}</p></div>`).join('');
+steps.innerHTML=C.steps.map(s=>`<div class="stp"><div class="n">STEP ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
+q.innerHTML=`<small>You asked</small>“${RT.demo.q}”`;
+turns.innerHTML=RT.demo.turns.map(x=>{const txt=x.text.replace(/\b(after|before)\b/i,'<em>$1</em>');return `<div class="turn"><img loading="lazy" src="${x.img}" alt=""><div><div class="who">${x.name} <span>· ${x.role}</span></div><p>${txt}</p></div></div>`;}).join('');
+roster.innerHTML=RT.roster.map(p=>`<div class="face"><div class="ph"><img loading="lazy" src="${p.img}" alt="${p.name}"></div><b>${p.name}</b><span>${p.role}</span></div>`).join('');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.13,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.r').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>

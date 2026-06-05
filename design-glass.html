@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Roundtable — Glass Serif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfbfd;--ink:#1d1d1f;--soft:#606068;--muted:#888891;--line:rgba(29,29,31,.11);
+  --tech:#0071e3;--violet:#8889ff;--pink:#f4b6cf;--mint:#9ce8cb;
+  --shadow:0 34px 110px -48px rgba(29,29,31,.48);--shadow-soft:0 22px 70px -42px rgba(29,29,31,.42);--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);
+  background:radial-gradient(ellipse 60% 42% at 10% 0%,rgba(136,137,255,.30),transparent 65%),radial-gradient(ellipse 52% 38% at 92% 0%,rgba(244,182,207,.36),transparent 66%),linear-gradient(180deg,#faf9ff 0%,#fbfbfd 40%,#f7f8fb 100%);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;border:0;background:none;color:inherit}
+.wrap{width:min(1240px,94vw);margin:0 auto;padding:0 clamp(16px,2vw,28px)}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}.mono{font-family:"JetBrains Mono",monospace}
+.r{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s var(--ease)}.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+nav{position:fixed;z-index:80;top:54px;left:0;right:0;pointer-events:none}
+.nav-inner{width:min(1180px,92vw);margin:0 auto;padding:9px 9px 9px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;
+  border-radius:999px;border:1px solid rgba(255,255,255,.78);background:rgba(251,251,253,.66);backdrop-filter:saturate(170%) blur(24px);-webkit-backdrop-filter:saturate(170%) blur(24px);box-shadow:0 18px 56px -38px rgba(29,29,31,.48);pointer-events:auto}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.nav-links{display:flex;justify-content:center;gap:26px}.nav-links a{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid rgba(29,29,31,.1);background:rgba(255,255,255,.78);box-shadow:0 12px 34px -28px rgba(29,29,31,.42);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transition:transform .25s var(--ease),background .25s}
+.pill:hover{transform:translateY(-2px);background:#fff}.pill.dark{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
+/* hero */
+.hero{min-height:100svh;padding:118px 0 70px;position:relative;overflow:hidden}
+.hero-graphic{position:relative;width:min(1180px,100vw);min-height:440px;margin:0 auto 26px}
+.orbit{position:absolute;left:50%;top:60%;width:108%;height:44%;border:1px solid rgba(29,29,31,.12);border-radius:50%;transform:translate(-50%,-50%) rotate(-6deg)}
+.table-cloud{position:absolute;inset:0;z-index:2}
+.table-card{position:absolute;width:clamp(150px,16vw,238px);aspect-ratio:1/1.12;border-radius:28px;overflow:hidden;background:rgba(255,255,255,.72);box-shadow:0 38px 100px -54px rgba(29,29,31,.58);animation:drift var(--dur,12s) ease-in-out infinite}
+.table-card img{width:100%;height:100%;object-fit:cover}
+.table-card .nm{position:absolute;left:12px;bottom:11px;right:12px;z-index:2;color:#fff;font-size:13px;font-weight:700;letter-spacing:-.02em;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.table-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.5))}
+.table-card.a{left:1%;top:40%;rotate:-12deg;--dur:13s;animation-delay:-2s}
+.table-card.b{left:19%;top:8%;rotate:-7deg;--dur:12s;animation-delay:-5s}
+.table-card.c{left:42%;top:3%;rotate:5deg;--dur:14s;animation-delay:-8s}
+.table-card.d{right:5%;top:24%;rotate:13deg;--dur:12.5s;animation-delay:-4s}
+.table-card.e{left:33%;bottom:0;rotate:3deg;--dur:15s;animation-delay:-9s}
+.table-card.f{right:20%;bottom:8%;rotate:-8deg;--dur:13.5s;animation-delay:-6s}
+@keyframes drift{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -20px;rotate:3deg}}
+.hero-copy{text-align:center;max-width:980px;margin:0 auto;position:relative;z-index:3}
+.label{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(29,29,31,.08);box-shadow:0 14px 42px -34px rgba(29,29,31,.5);color:#242447;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tech);box-shadow:0 0 0 5px rgba(0,113,227,.12)}
+h1{margin-top:22px;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(58px,8.4vw,124px);line-height:.9;letter-spacing:-.04em;font-weight:700;text-wrap:balance}
+.hero-copy p.sub{max-width:680px;margin:24px auto 0;color:var(--soft);font-size:clamp(20px,2.1vw,28px);line-height:1.5}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+/* sections */
+.section-pad{padding:clamp(86px,11vw,132px) 0}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:34px;margin-bottom:46px}
+.head h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(48px,6vw,92px);line-height:.9;letter-spacing:-.045em;font-weight:700;max-width:760px;text-wrap:balance}
+.head p{max-width:420px;color:var(--soft);font-size:17px;line-height:1.55}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.why-card{min-height:280px;border-radius:34px;padding:28px;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;justify-content:space-between}
+.why-card.dark{background:#1d1d1f;color:#fff}
+.why-card h3{font-size:clamp(26px,2.6vw,40px);line-height:.98;letter-spacing:-.04em}
+.why-card p{margin-top:16px;color:var(--soft);font-size:15px;line-height:1.55}.why-card.dark p{color:rgba(255,255,255,.66)}
+.why-tag{align-self:flex-start;min-height:30px;padding:0 11px;border-radius:999px;background:rgba(29,29,31,.06);display:inline-flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.why-card.dark .why-tag{background:rgba(255,255,255,.12);color:rgba(255,255,255,.74)}
+/* marquee roster */
+.roster-block{border-top:1px solid var(--line);padding:42px 0;overflow:hidden}
+.roster-title{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:20px}
+.roster-title h3{font-size:38px;letter-spacing:-.04em;line-height:1;font-weight:700}
+.roster-title p{max-width:380px;color:var(--soft);font-size:15px}
+.marquee{position:relative;margin:0 calc((100vw - min(1240px,94vw))/-2);overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.track{display:flex;gap:18px;width:max-content;animation:slide 46s linear infinite;padding:0 20px}.marquee:hover .track{animation-play-state:paused}
+.profile-card{width:206px;aspect-ratio:1/1.22;border-radius:28px;overflow:hidden;position:relative;background:#ddd;box-shadow:0 24px 60px -42px rgba(29,29,31,.58);flex:0 0 auto}
+.profile-card img{width:100%;height:100%;object-fit:cover}.profile-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.72))}
+.pc-body{position:absolute;left:15px;right:15px;bottom:14px;z-index:2;color:#fff}.pc-body strong{display:block;font-size:18px;letter-spacing:-.03em}.pc-body span{display:block;margin-top:3px;color:rgba(255,255,255,.72);font-size:11px}
+@keyframes slide{to{transform:translateX(calc(-50% - 9px))}}
+/* how */
+.how-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px;align-items:stretch}
+.steps{display:grid;gap:12px}
+.step{display:flex;align-items:center;gap:16px;min-height:84px;padding:18px;border-radius:26px;background:rgba(255,255,255,.66);border:1px solid rgba(29,29,31,.08)}
+.num{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#1d1d1f;color:#fff;font-size:13px;font-weight:800;flex:0 0 auto}
+.step strong{display:block;font-size:18px;letter-spacing:-.02em}.step span{display:block;margin-top:3px;color:var(--soft);font-size:14px}
+.panel{border-radius:34px;padding:30px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow-soft)}
+.topic-line{display:flex;align-items:center;gap:12px;min-height:54px;padding:0 18px;border-radius:999px;background:rgba(29,29,31,.06);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:18px}
+.topic-line strong{color:var(--ink);font-size:14px;letter-spacing:-.01em;text-transform:none;font-weight:700}
+.ex{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.ex img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
+.ex .who{font-size:12px;font-weight:800;letter-spacing:-.01em}.ex .who span{color:var(--muted);font-weight:500}
+.ex p{margin-top:4px;font-size:14.5px;line-height:1.5;color:var(--soft)}.ex em{font-style:normal;color:var(--tech);font-weight:700}
+/* close */
+.close{padding:clamp(96px,12vw,150px) 0;text-align:center}
+.close h2{font-family:"Cormorant Garamond",serif;font-size:clamp(54px,8vw,120px);line-height:.9;letter-spacing:-.045em;font-weight:700}
+.close p{color:var(--soft);font-size:19px;margin:18px auto 30px;max-width:480px}
+footer{padding:30px 0 40px;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:18px;border-top:1px solid var(--line);padding-top:22px}
+@media(max-width:900px){.nav-links{display:none}.nav-inner{grid-template-columns:1fr auto}.head,.why-grid,.how-grid{grid-template-columns:1fr}.head{flex-direction:column;align-items:start}.table-card{width:clamp(130px,30vw,190px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.r{opacity:1;transform:none}.track{transform:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="brand" href="#top">Roundtable</a>
+  <div class="nav-links"><a href="#why">Why</a><a href="#agents">Agents</a><a href="#how">How it works</a></div>
+  <div class="nav-actions"><a class="pill dark" href="#start" id="navcta"></a></div>
+</div></nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-graphic r d1">
+        <div class="orbit"></div>
+        <div class="table-cloud" id="cloud"></div>
+      </div>
+      <div class="hero-copy">
+        <span class="label r">Multi-expert AI · Live</span>
+        <h1 class="serif r d1" id="h1"></h1>
+        <p class="sub r d2" id="sub"></p>
+        <div class="hero-actions r d3"><a class="pill dark" href="#agents" id="cta1"></a><a class="pill" href="#how" id="cta2"></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="why"><div class="wrap">
+    <div class="head"><h2 class="serif r" id="whyTitle"></h2><p class="r d1" id="whySub"></p></div>
+    <div class="why-grid" id="whyGrid"></div>
+  </div></section>
+
+  <section class="section-pad" id="agents"><div class="wrap">
+    <div class="head"><h2 class="serif r" id="rosterTitle"></h2><p class="r d1" id="rosterSub"></p></div>
+    <div class="roster-block r d1"><div class="marquee"><div class="track" id="track"></div></div></div>
+  </div></section>
+
+  <section class="section-pad" id="how"><div class="wrap how-grid">
+    <div>
+      <div class="head" style="display:block;margin-bottom:26px"><h2 class="serif r">How it works.</h2></div>
+      <div class="steps r d1" id="steps"></div>
+    </div>
+    <article class="panel r d2">
+      <div class="topic-line"><span>Discussion</span><strong id="topicQ"></strong></div>
+      <div id="exchange"></div>
+    </article>
+  </div></section>
+
+  <section class="close" id="start"><div class="wrap">
+    <h2 class="serif r" id="closeTitle"></h2><p class="r d1" id="closeSub"></p>
+    <a class="pill dark r d2" href="#" style="min-height:54px;padding:0 30px;font-size:13px">Start a session</a>
+  </div></section>
+</main>
+<footer><div class="wrap foot"><span>Roundtable · Multi-expert AI</span><span>AI-generated discussions for exploration. Not professional advice.</span></div></footer>
+
+<script src="rt-data.js"></script>
+<script>
+const C=RT.copy;
+h1.textContent=C.h1; sub.textContent=C.sub; navcta.textContent='Enter';
+cta1.textContent=C.ctaPrimary; cta2.textContent=C.ctaSecondary;
+whyTitle.textContent=C.whyTitle; whySub.textContent=C.whySub;
+rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
+closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
+topicQ.textContent='“'+RT.demo.q+'”';
+// hero cloud
+const cls=['a','b','c','d','e','f'];
+cloud.innerHTML=RT.roster.slice(0,6).map((p,i)=>`<div class="table-card ${cls[i]}"><img loading="lazy" src="${p.img}" alt="${p.name}"><span class="nm">${p.name}</span></div>`).join('');
+// why cards (middle one dark accent)
+whyGrid.innerHTML=C.why.map((w,i)=>`<article class="why-card ${i===1?'dark':''}"><div><h3>${w.title}.</h3><p>${w.body}</p></div><span class="why-tag mono">0${i+1}</span></article>`).join('');
+// roster marquee (doubled)
+const cardHTML=p=>`<article class="profile-card"><img loading="lazy" src="${p.img}" alt="${p.name}"><div class="pc-body"><strong>${p.name}</strong><span>${p.role}</span></div></article>`;
+track.innerHTML=[...RT.roster,...RT.roster].map(cardHTML).join('');
+// steps
+steps.innerHTML=C.steps.map(s=>`<div class="step"><div class="num mono">${s.n.replace('0','')}</div><div><strong>${s.title}.</strong><span>${s.body}</span></div></div>`).join('');
+// exchange
+exchange.innerHTML=RT.demo.turns.map(t=>{const txt=t.text.replace(/\b(after|before)\b/i,'<em>$1</em>');return `<div class="ex"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;}).join('');
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.r').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
