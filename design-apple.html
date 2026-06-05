@@ -163,7 +163,7 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 <a class="back" href="hero-concepts.html">← all designs</a>
 <nav id="nav"><div class="wide">
   <b>Roundtable</b>
-  <div class="lk"><a href="#what">Why</a><a href="#how">How it works</a><a href="#agents">Agents</a><a href="#demo">Demo</a></div>
+  <div class="lk"><a href="#what">Why</a><a href="#agents">Agents</a><a href="#demo">Demo</a></div>
   <a class="try" href="#start">Try free</a>
 </div></nav>
 
@@ -201,20 +201,6 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
           <h3>Conversation. Follows your lead</h3><p>You can respond in real time, ask for another angle, or move the room toward what matters to you.</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- HOW (Glass-style: steps + discussion panel) -->
-  <section class="sec grey" id="how">
-    <div class="wrap hgrid">
-      <div>
-        <div class="shead2 r"><div class="kick">How it works</div><h2>Three steps to a sharper answer.</h2></div>
-        <div class="hsteps r d1" id="steps"></div>
-      </div>
-      <article class="hpanel r d2">
-        <div class="topicline"><span>Discussion</span><strong id="topicQ"></strong></div>
-        <div id="exchange"></div>
-      </article>
     </div>
   </section>
 
@@ -259,10 +245,6 @@ demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; roster
 closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
 cloud.innerHTML=RT.heroCardsHTML();
 
-// how-it-works: steps list + discussion panel (Glass style)
-steps.innerHTML=C.steps.map(s=>`<div class="hstep"><div class="hnum">${s.n.replace('0','')}</div><div><strong>${s.title}</strong><span>${s.body}</span></div></div>`).join('');
-document.getElementById('topicQ').textContent='“'+RT.demo.q+'”';
-document.getElementById('exchange').innerHTML=RT.demo.turns.map(t=>{const txt=t.short.replace(/\b(after|before)\b/i,'<em>$1</em>');return `<div class="exrow"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;}).join('');
 
 // demo — responses appear one by one, like a live text thread
 askQ.textContent=RT.demo.q;
