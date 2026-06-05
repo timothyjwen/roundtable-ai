@@ -31,11 +31,11 @@ window.RT = {
     { name: "James Wei",       role: "Fundraising",            img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg" },
     { name: "Marco Reyes",     role: "Venture Capital",  img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg" },
     { name: "Eunji Choi",      role: "Startup Finance",         img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg" },
-    { name: "Dana Mercer",     role: "Product",             img: "avatars/7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg" },
-    { name: "Zhao Qihang",     role: "Founder",             img: "avatars/83be0439-c766-4eda-bc83-a534501f8337-1778827838980.jpg" },
-    { name: "Elias Varga",     role: "AI Research",         img: "avatars/680343c8-ba7d-4bc4-8c24-554002301197-1778828752853.jpg" },
-    { name: "Kavya Krishnan",  role: "Growth",              img: "avatars/972b8773-6639-4678-8601-9f0c210a2cce-1778827982228.jpg" },
-    { name: "Nadia Farahani",  role: "Operations",          img: "avatars/d9fdb952-83d1-4d16-ab01-48d073716220-1778827773567.jpg" }
+    { name: "Dana Mercer",     role: "Financial Analyst",             img: "avatars/7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg" },
+    { name: "Zhao Qihang",     role: "Angel Investor",             img: "avatars/83be0439-c766-4eda-bc83-a534501f8337-1778827838980.jpg" },
+    { name: "Elias Varga",     role: "Private Equity",         img: "avatars/680343c8-ba7d-4bc4-8c24-554002301197-1778828752853.jpg" },
+    { name: "Kavya Krishnan",  role: "Growth Finance",              img: "avatars/972b8773-6639-4678-8601-9f0c210a2cce-1778827982228.jpg" },
+    { name: "Nadia Farahani",  role: "Finance Operations",          img: "avatars/d9fdb952-83d1-4d16-ab01-48d073716220-1778827773567.jpg" }
   ],
   demo: {
     q: "Should I raise funding before or after launching?",
