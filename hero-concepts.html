@@ -131,6 +131,8 @@ h1{font-size:clamp(38px,5.2vw,70px)}
 
 /* ===== VISUAL: contrast (truth) ===== */
 .contrast{display:grid;grid-template-columns:1fr;gap:14px;width:min(500px,96%);margin:0 auto}
+.ask3{background:var(--accent-soft);border:1px solid rgba(0,122,255,.22);border-radius:12px;padding:11px 15px;font-size:13px;font-weight:600;color:var(--ink-2);display:flex;gap:9px;align-items:center;flex-wrap:wrap;font-family:'Inter',sans-serif}
+.ask3 span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .cc{border-radius:20px;padding:16px 18px;border:1px solid var(--line);position:relative}
 .cc .tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif}
 .cc.one{background:var(--bg-2)}
@@ -287,9 +289,10 @@ h1{font-size:clamp(38px,5.2vw,70px)}
     </div>
     <div class="vis">
       <div class="contrast" id="contrast3">
+        <div class="ask3"><span>🎯 You asked</span>"Should I raise funding before or after launching?"</div>
         <div class="cc one">
           <div class="tag"><i>🤖</i>One assistant</div>
-          <div class="flat">"Great idea! Launching now sounds like a smart move — you've clearly thought it through. 👍"</div>
+          <div class="flat">"Great question! Raising now sounds like the right call — investors love momentum, so go for it. 👍"</div>
           <div class="yes">✓ agrees &nbsp;✓ agrees &nbsp;✓ agrees</div>
         </div>
         <div class="vs">VS</div>
@@ -354,11 +357,13 @@ h1{font-size:clamp(38px,5.2vw,70px)}
 </main>
 
 <script>
+/* Avatars are bundled locally in ./avatars/ so the page never depends on the
+   (sometimes-blocked) doppel-*.zeabur.app endpoints. */
 const AV={
-  health:id=>`https://doppel-health.zeabur.app/api/avatar/${id}`,
-  art:id=>`https://doppel-art.zeabur.app/api/avatar/${id}`,
-  tech:id=>`https://doppel-tech.zeabur.app/api/avatar/${id}`,
-  fashion:id=>`https://doppel-fashion.zeabur.app/api/avatar/${id}`
+  health:id=>`avatars/${id}`,
+  art:id=>`avatars/${id}`,
+  tech:id=>`avatars/${id}`,
+  fashion:id=>`avatars/${id}`
 };
 const HEALTH=[['沈露西',AV.health('aa856c73-9438-4a98-9ecb-00adeec575d0-1780375727149.png')],['林安娜',AV.health('63841b56-3674-4c5e-bf84-f66b30024725-1780373626715.png')],['賴珊蒂',AV.health('8463a8dc-5ed1-4eb9-be30-a6078f70d952-1780374722221.png')],['宋艾倫',AV.health('424fb0ae-d2de-4f24-acea-146186ee3271-1780374681611.png')],['白大衛',AV.health('518e4b8b-31df-45fa-8395-3f64ed919ccc-1780374890238.png')],['郭馬克',AV.health('ddd73f22-2d09-4328-94f2-333ddb14685d-1780374914053.png')],['周丹尼',AV.health('3de05046-191b-4776-86d0-04187d9c9388-1780374652294.png')],['林珍妮',AV.health('be7b273d-d444-4223-b5b7-c4241f1f9699-1780374943092.png')]];
 const ART=[['Clara Hsu','Moderator',AV.art('d605529a-5bd1-4df9-a74b-b54f69d491a7-1779101561622.jpg')],['van Gogh','Post-Impressionism',AV.art('578d2c36-3bea-4b67-98c8-e310745eb120-1779101575791.jpg')],['da Vinci','Renaissance',AV.art('092e295d-3b0d-4fe8-894c-ce09de8503e3-1779101557820.jpg')],['Frida Kahlo','Modern',AV.art('a23f4b21-0384-4bd9-9af9-777b71f5b85a-1779101568128.jpg')],['Monet','Impressionism',AV.art('cd833c65-7585-4822-935d-9d56d7043326-1778734823876.png')],['Klimt','Symbolism',AV.art('d7eaa999-325c-4fe4-ab88-f9974ba9d26d-1778741893623.jpg')],['Seurat','Pointillism',AV.art('6f3ec7dd-f803-4510-b343-2ac555f493a7-1779101563168.jpg')],['Hokusai','Ukiyo-e',AV.art('ca47eae9-e67c-4275-a3db-cdeef7bcf5ab-1779101570743.jpg')]];
@@ -399,11 +404,12 @@ buildTable('table4',{
     `<div class="pcard main"><img src="${main[2]}" alt="${main[0]}"><span class="spk"><i></i>SPEAKING</span><span class="nm">${main[0]}</span></div>`;
 })();
 
-/* C3 — two disagreeing experts */
+/* C3 — two tech/finance experts disagreeing on the funding question */
 (function(){
-  const a=byName('Klimt'), b=byName('Seurat');
-  document.getElementById('deb3a').innerHTML=`<div class="av"><img src="${a[2]}" alt=""></div><div class="bd"><div class="who"><em>${a[0]}</em> · ${a[1]}</div><div class="bub">"Slow down — you're handing over personal data before you've built the compliance layer. That's the real risk."</div></div>`;
-  document.getElementById('deb3b').innerHTML=`<div class="av"><img src="${b[2]}" alt=""></div><div class="bd"><div class="who"><em>${b[0]}</em> · ${b[1]}</div><div class="bub">"I disagree on timing — but he's right that you haven't priced the downside. Don't launch blind."</div></div>`;
+  const a=['James Wei','Tech Strategy',TECH[2][1]];      // raise after
+  const b=['Marco Reyes','Venture Capital',TECH[1][1]];  // raise before
+  document.getElementById('deb3a').innerHTML=`<div class="av"><img src="${a[2]}" alt=""></div><div class="bd"><div class="who"><em style="color:var(--tech)">${a[0]}</em> · ${a[1]}</div><div class="bub">"Raise <strong>after</strong>. Land 10 paying customers first — traction makes every investor pitch easier, and revenue is the best story you've got."</div></div>`;
+  document.getElementById('deb3b').innerHTML=`<div class="av"><img src="${b[2]}" alt=""></div><div class="bd"><div class="who"><em style="color:var(--tech)">${b[0]}</em> · ${b[1]}</div><div class="bub">"I'd push back. If you're capital-intensive, raise <strong>before</strong> — waiting on revenue can mean shipping a weaker product into a closing window."</div></div>`;
 })();
 
 /* C5 — Roundtable Black invitation card */
