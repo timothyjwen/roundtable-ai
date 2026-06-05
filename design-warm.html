@@ -150,11 +150,7 @@ cta1.textContent=C.ctaPrimary; cta2.textContent=C.ctaSecondary;
 whyTitle.textContent=C.whyTitle; whySub.textContent=C.whySub;
 demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
 closeTitle.innerHTML=C.closeTitle.replace('chair','<em>chair</em>'); closeSub.textContent=C.closeSub;
-// floating agent cards + live discussion bubble (copy left / cards right)
-const t=RT.roster, pos=['a','b','c','d'], traits=['Strategic','ROI-minded','Pragmatic','User-first'];
-const qHtml=RT.demo.q.replace(/\b(before|after)\b/g,'<b>$1</b>');
-cloud.innerHTML=t.slice(0,4).map((p,i)=>`<div class="fcard ${pos[i]}"><div class="top"><img class="av" loading="lazy" src="${p.img}" alt="${p.name}"><div><div class="nm">${p.name}</div><div class="rl">${p.role}</div></div></div><span class="pill">${traits[i]}</span></div>`).join('')+
-  `<div class="livebubble"><div class="lab"><i></i>Live discussion</div><q>“${qHtml}”</q><div class="resp"><span class="mini">${t.slice(0,3).map(p=>`<img src="${p.img}" alt="">`).join('')}</span>3 specialists responding…</div></div>`;
+cloud.innerHTML=RT.heroCardsHTML();
 whylist.innerHTML=C.why.map((w,i)=>`<div class="wrow"><div class="no">0${i+1}</div><h3>${w.title}</h3><p>${w.body}</p></div>`).join('');
 steps.innerHTML=C.steps.map(s=>`<div class="stp"><div class="n">STEP ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
 q.innerHTML=`<small>You asked</small>“${RT.demo.q}”`;

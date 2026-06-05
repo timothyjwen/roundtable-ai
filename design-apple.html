@@ -51,30 +51,30 @@ nav .lk{display:flex;gap:32px}
 nav .lk a{font-size:13px;color:var(--soft);transition:color .2s}nav .lk a:hover{color:var(--ink)}
 nav .try{font-size:13px;font-weight:500;background:var(--blue);color:#fff;padding:7px 15px;border-radius:980px}
 
-/* hero */
-.hero{padding:140px 0 0;text-align:center}
-.hero h1{font-size:clamp(44px,7.4vw,92px);font-weight:600;margin:18px auto 0;max-width:14ch}
-.hero .sub{font-size:clamp(19px,2.1vw,26px);color:var(--soft);max-width:660px;margin:24px auto 0;font-weight:400;line-height:1.42}
-.hero .cta{display:flex;gap:22px;justify-content:center;align-items:center;margin-top:34px;flex-wrap:wrap}
-/* hero roundtable visual */
-.stage{position:relative;width:min(720px,92vw);aspect-ratio:1/.86;margin:54px auto 0}
-.halo{position:absolute;inset:-6% -6% auto;height:70%;top:6%;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 40%,#eef4ff,transparent 62%);filter:blur(6px);z-index:0}
-.tablev{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,86%);aspect-ratio:1}
-.felt{position:absolute;inset:20%;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--sh)}
-.felt:before{content:"";position:absolute;inset:9%;border-radius:50%;border:1px dashed var(--line)}
-.center{position:absolute;inset:0;display:grid;place-content:center;text-align:center;z-index:4;padding:0 24%}
-.center .live{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--blue);display:inline-flex;gap:6px;align-items:center;justify-content:center;margin-bottom:8px}
-.center .live i{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.6s ease infinite}
+/* hero — copy left, floating cards right */
+.hero{padding:130px 0 86px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.hero h1{font-size:clamp(40px,5.4vw,74px);font-weight:600;margin:18px 0 0;max-width:13ch}
+.hero .sub{font-size:clamp(18px,1.5vw,21px);color:var(--soft);max-width:470px;margin:22px 0 0;font-weight:400;line-height:1.5}
+.hero .cta{display:flex;gap:22px;align-items:center;margin-top:30px;flex-wrap:wrap}
+.cloud{position:relative;height:clamp(440px,46vw,520px)}
+.fcard{position:absolute;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 17px;box-shadow:var(--sh-sm);min-width:178px;animation:bob 5s ease-in-out infinite}
+.fcard:nth-child(2){animation-delay:-2.4s}.fcard:nth-child(3){animation-delay:-1.2s}.fcard:nth-child(4){animation-delay:-3.1s}
+.fcard .top{display:flex;align-items:center;gap:12px}
+.fcard .av{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none}
+.fcard .nm{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.fcard .rl{font-size:11.5px;color:var(--faint);margin-top:1px}
+.fcard .pill{display:inline-block;margin-top:12px;font-size:10.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);padding:4px 11px;border-radius:999px}
+.fcard.a{top:1%;left:0}.fcard.b{top:8%;right:0}.fcard.c{bottom:8%;left:1%}.fcard.d{bottom:0;right:3%}
+.livebubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:min(300px,76%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:19px 21px;box-shadow:var(--sh)}
+.livebubble .lab{font-size:11px;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:7px;margin-bottom:11px}
+.livebubble .lab i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.center q{font-size:clamp(14px,1.5vw,17px);font-weight:500;color:var(--ink);line-height:1.35;quotes:none}
-.center small{display:block;margin-top:9px;font-size:11px;color:var(--faint)}
-.ring{position:absolute;inset:0;animation:spin 64s linear infinite}
-.seat{position:absolute;top:50%;left:50%;width:0;height:0}
-.seat .av{position:absolute;width:clamp(58px,9vw,82px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);overflow:hidden;background:var(--bg2);border:4px solid #fff;box-shadow:var(--sh-sm);animation:spinr 64s linear infinite}
-.seat .av img{width:100%;height:100%;object-fit:cover}
-@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinr{to{transform:translate(-50%,-50%) rotate(-360deg)}}
-.stage:hover .ring,.stage:hover .seat .av{animation-play-state:paused}
+.livebubble q{font-size:17px;font-weight:500;line-height:1.35;color:var(--ink);quotes:none}
+.livebubble q b{font-weight:700}
+.livebubble .resp{display:flex;align-items:center;gap:9px;margin-top:13px;font-size:11.5px;color:var(--faint)}
+.livebubble .mini{display:flex}.livebubble .mini img{width:22px;height:22px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-left:-7px}.livebubble .mini img:first-child{margin-left:0}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 /* generic section */
 .sec{padding:var(--pad) 0}
@@ -129,7 +129,7 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 @media(max-width:860px){
   .bento,.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}
-  nav .lk{display:none}.hero{padding-top:108px}
+  nav .lk{display:none}.hero{padding-top:108px}.hero .grid{grid-template-columns:1fr;gap:30px}.cloud{order:-1}
 }
 @media(prefers-reduced-motion:reduce){.ring,.seat .av{animation:none!important}.r{opacity:1;transform:none}}
 </style>
@@ -144,8 +144,8 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
 <main>
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
+  <section class="hero"><div class="wrap grid">
+    <div class="lead">
       <span class="eyebrow r"><span class="dot"></span>MULTI-EXPERT AI</span>
       <h1 class="r d1" id="h1"></h1>
       <p class="sub r d2" id="sub"></p>
@@ -154,19 +154,8 @@ footer .wide{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
         <a class="btn btn-ghost" href="#demo" id="cta2"></a>
       </div>
     </div>
-    <div class="stage r d2">
-      <div class="halo"></div>
-      <div class="tablev">
-        <div class="felt"></div>
-        <div class="center">
-          <span class="live"><i></i>LIVE DISCUSSION</span>
-          <q id="centerQ"></q>
-          <small id="centerS"></small>
-        </div>
-        <div class="ring" id="ring"></div>
-      </div>
-    </div>
-  </section>
+    <div class="cloud r d2" id="cloud"></div>
+  </div></section>
 
   <!-- WHY -->
   <section class="sec" id="what">
@@ -236,15 +225,7 @@ h1.textContent=C.h1; sub.textContent=C.sub;
 cta1.textContent=C.ctaPrimary; cta2.innerHTML=C.ctaSecondary+' ›';
 demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
 closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
-centerQ.textContent='“'+RT.demo.q+'”';
-centerS.textContent=RT.demo.turns.map(t=>t.name.split(' ')[0]).slice(0,3).join(' · ')+' · debating';
-
-// hero ring
-(function(){
-  const six=RT.roster.slice(0,6), R=44;
-  ring.innerHTML=six.map((p,i)=>{const a=(i/six.length)*2*Math.PI-Math.PI/2;const x=(50+R*Math.cos(a)).toFixed(2),y=(50+R*Math.sin(a)).toFixed(2);
-    return `<div class="seat" style="left:${x}%;top:${y}%"><div class="av"><img loading="lazy" src="${p.img}" alt="${p.name}"></div></div>`;}).join('');
-})();
+cloud.innerHTML=RT.heroCardsHTML();
 
 // steps
 steps.innerHTML=C.steps.map(s=>`<div class="stepc"><div class="n">Step ${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');

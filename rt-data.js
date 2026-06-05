@@ -46,3 +46,18 @@ window.RT = {
     ]
   }
 };
+
+/* Shared hero composition (used by every design): 4 floating agent cards
+   around a centre "Live discussion" bubble. Each design styles
+   .fcard / .livebubble / .pill in its own aesthetic. */
+RT.heroCardsHTML = function(){
+  const t = RT.roster, pos = ['a','b','c','d'];
+  const traits = ['Strategic','ROI-minded','Pragmatic','User-first'];
+  const q = RT.demo.q.replace(/\b(before|after)\b/g, '<b>$1</b>');
+  const cards = t.slice(0,4).map((p,i) =>
+    `<div class="fcard ${pos[i]}"><div class="top"><img class="av" loading="lazy" src="${p.img}" alt="${p.name}"><div><div class="nm">${p.name}</div><div class="rl">${p.role}</div></div></div><span class="pill">${traits[i]}</span></div>`
+  ).join('');
+  const mini = t.slice(0,3).map(p => `<img src="${p.img}" alt="">`).join('');
+  const bubble = `<div class="livebubble"><div class="lab"><i></i>Live discussion</div><q>“${q}”</q><div class="resp"><span class="mini">${mini}</span>3 specialists responding…</div></div>`;
+  return cards + bubble;
+};

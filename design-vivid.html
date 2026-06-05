@@ -33,25 +33,32 @@ nav b{font-size:19px;font-weight:800;letter-spacing:-.03em}
 nav .lk{display:flex;gap:28px;font-size:13.5px;font-weight:600;color:var(--soft)}nav .lk a:hover{color:var(--g1)}
 nav .try{font-size:13.5px;font-weight:700;background:linear-gradient(110deg,var(--g1),var(--g2));color:#fff;padding:9px 18px;border-radius:11px}
 /* hero */
-.hero{padding:128px 0 80px;text-align:center;position:relative}
+.hero{padding:124px 0 84px;position:relative}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
 .blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(70px);opacity:.5}
 .blob.b1{width:480px;height:480px;background:radial-gradient(circle,#d9c7ff,transparent 65%);top:-60px;left:-80px}
 .blob.b2{width:440px;height:440px;background:radial-gradient(circle,#bfe0ff,transparent 65%);top:0;right:-80px}
-.hero h1{font-size:clamp(50px,8.6vw,116px);font-weight:900;margin:22px auto 0;max-width:13ch}
-.hero .sub{font-size:clamp(18px,2vw,24px);color:var(--soft);max-width:600px;margin:24px auto 0;font-weight:500;line-height:1.45}
-.hero .cta{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
-/* hero panel */
-.panel-hero{margin:58px auto 0;width:min(900px,94vw);border-radius:30px;padding:5px;background:linear-gradient(120deg,var(--g1),var(--g2) 55%,var(--g3))}
-.panel-in{background:#fff;border-radius:26px;padding:26px 26px 30px}
-.panel-in .bar{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:20px}
-.panel-in .bar .q{font-weight:700;font-size:15px}.panel-in .bar .q span{color:var(--g1)}
-.panel-in .bar .live{font-size:11px;font-weight:700;color:var(--g1);background:var(--soft-v);padding:5px 11px;border-radius:999px}
-.bubbles{display:flex;flex-direction:column;gap:12px;text-align:left}
-.bub{display:flex;gap:12px;align-items:flex-start}
-.bub img{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none}
-.bub .body{background:var(--soft-v);border-radius:6px 16px 16px 16px;padding:11px 15px;flex:1}
-.bub .who{font-size:12px;font-weight:700;margin-bottom:3px}.bub .who span{color:var(--faint);font-weight:500}
-.bub p{font-size:14.5px;line-height:1.5;color:var(--ink)}.bub em{font-style:normal;font-weight:800;background:linear-gradient(110deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-size:clamp(42px,5.8vw,80px);font-weight:900;margin:20px 0 0;max-width:12ch}
+.hero .sub{font-size:clamp(17px,1.5vw,21px);color:var(--soft);max-width:470px;margin:22px 0 0;font-weight:500;line-height:1.5}
+.hero .cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+/* floating cards */
+.cloud{position:relative;height:clamp(440px,46vw,520px)}
+.fcard{position:absolute;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 17px;box-shadow:0 22px 50px -26px rgba(19,17,28,.28);min-width:178px;animation:bob 5s ease-in-out infinite}
+.fcard:nth-child(2){animation-delay:-2.4s}.fcard:nth-child(3){animation-delay:-1.2s}.fcard:nth-child(4){animation-delay:-3.1s}
+.fcard .top{display:flex;align-items:center;gap:12px}
+.fcard .av{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none}
+.fcard .nm{font-size:16px;font-weight:800;letter-spacing:-.02em}
+.fcard .rl{font-size:11.5px;color:var(--faint);margin-top:1px;font-weight:500}
+.fcard .pill{display:inline-block;margin-top:12px;font-size:10.5px;font-weight:700;color:#fff;background:linear-gradient(110deg,var(--g1),var(--g2));padding:4px 11px;border-radius:999px}
+.fcard.a{top:1%;left:0}.fcard.b{top:8%;right:0}.fcard.c{bottom:8%;left:1%}.fcard.d{bottom:0;right:3%}
+.livebubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:min(304px,78%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:19px 21px;box-shadow:0 30px 70px -30px rgba(109,40,245,.4)}
+.livebubble .lab{font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:11px;background:linear-gradient(110deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.livebubble .lab i{width:7px;height:7px;border-radius:50%;background:linear-gradient(var(--g1),var(--g2));animation:pp 1.6s infinite}
+.livebubble q{font-size:17px;font-weight:600;line-height:1.35;color:var(--ink);quotes:none}
+.livebubble q b{font-weight:800;background:linear-gradient(110deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.livebubble .resp{display:flex;align-items:center;gap:9px;margin-top:13px;font-size:11.5px;color:var(--faint)}
+.livebubble .mini{display:flex}.livebubble .mini img{width:22px;height:22px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-left:-7px}.livebubble .mini img:first-child{margin-left:0}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 /* sections */
 .sec{padding:clamp(80px,10vw,128px) 0}
 .shead{text-align:center;max-width:720px;margin:0 auto 56px}
@@ -85,7 +92,7 @@ nav .try{font-size:13.5px;font-weight:700;background:linear-gradient(110deg,var(
 .close .btn{background:#fff;color:var(--g1)}
 .cw{padding:clamp(50px,7vw,90px) 0}
 footer{padding:30px 0;color:var(--faint);font-size:12px}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media(max-width:880px){nav .lk{display:none}.bento,.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:880px){nav .lk{display:none}.bento,.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}.hero .grid{grid-template-columns:1fr;gap:28px}.cloud{order:-1}}
 @media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none}*{animation:none!important}}
 </style>
 </head>
@@ -95,16 +102,15 @@ footer{padding:30px 0;color:var(--faint);font-size:12px}.foot{display:flex;justi
 <main>
   <section class="hero">
     <span class="blob b1"></span><span class="blob b2"></span>
-    <div class="wrap">
-      <span class="eyebrow r"><i></i>MULTI-EXPERT AI</span>
-      <h1 class="r d1" id="h1"></h1>
-      <p class="sub r d2" id="sub"></p>
-      <div class="cta r d3"><a class="btn grad-bg" href="#agents" id="cta1"></a><a class="btn ghost" href="#how" id="cta2"></a></div>
+    <div class="wrap grid">
+      <div class="lead">
+        <span class="eyebrow r"><i></i>MULTI-EXPERT AI</span>
+        <h1 class="r d1" id="h1"></h1>
+        <p class="sub r d2" id="sub"></p>
+        <div class="cta r d3"><a class="btn grad-bg" href="#agents" id="cta1"></a><a class="btn ghost" href="#how" id="cta2"></a></div>
+      </div>
+      <div class="cloud r d2" id="cloud"></div>
     </div>
-    <div class="panel-hero r d2"><div class="panel-in">
-      <div class="bar"><div class="q" id="panelQ"></div><span class="live">● LIVE</span></div>
-      <div class="bubbles" id="bubbles"></div>
-    </div></div>
   </section>
 
   <section class="sec" id="why"><div class="wrap">
@@ -137,8 +143,7 @@ cta1.textContent=C.ctaPrimary; cta2.textContent=C.ctaSecondary;
 whyTitle.textContent=C.whyTitle; whySub.textContent=C.whySub;
 rosterTitle.textContent=C.rosterTitle; rosterSub.textContent=C.rosterSub;
 closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
-panelQ.innerHTML='Asked: <span>“'+RT.demo.q+'”</span>';
-bubbles.innerHTML=RT.demo.turns.map(t=>{const txt=t.text.replace(/\b(after|before)\b/i,'<em>$1</em>');return `<div class="bub"><img loading="lazy" src="${t.img}" alt=""><div class="body"><div class="who">${t.name} <span>· ${t.role}</span></div><p>${txt}</p></div></div>`;}).join('');
+cloud.innerHTML=RT.heroCardsHTML();
 bento.innerHTML=C.why.map((w,i)=>`<article class="bcard"><div class="k">0${i+1}</div><h3>${w.title}</h3><p>${w.body}</p></article>`).join('');
 steps.innerHTML=C.steps.map(s=>`<div class="stp"><div class="n">${s.n.replace('0','')}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
 roster.innerHTML=RT.roster.map(p=>`<div class="face"><img loading="lazy" src="${p.img}" alt="${p.name}"><div class="m"><b>${p.name}</b><span>${p.role}</span></div></div>`).join('');

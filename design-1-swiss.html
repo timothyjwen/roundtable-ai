@@ -27,21 +27,33 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;width:mi
 nav b{font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.01em}
 nav .links{display:flex;gap:30px;font-family:'Space Grotesk';font-size:13px;font-weight:500;letter-spacing:.02em}
 nav .links a:hover{color:var(--red)}
-/* hero */
-.hero{padding:72px 0 64px}
-.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end}
-.hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(46px,7vw,104px);line-height:.94;letter-spacing:-.035em;margin:26px 0 0}
+/* hero — copy left, floating cards right */
+.hero{padding:64px 0 60px}
+.hero .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(40px,5.4vw,80px);line-height:.96;letter-spacing:-.035em;margin:22px 0 0}
 .hero h1 em{font-style:normal;color:var(--red)}
-.hero .sub{font-size:18px;line-height:1.55;color:var(--ink);max-width:380px;margin-bottom:26px}
+.hero .sub{font-size:17px;line-height:1.55;color:var(--ink);max-width:400px;margin:22px 0 24px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero .num{font-family:'Space Grotesk';font-size:12px;letter-spacing:.12em;color:var(--mut);margin-top:30px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
-/* portrait index */
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
-.pgrid .cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);aspect-ratio:1;position:relative;overflow:hidden;background:#f2f2f2}
-.pgrid .cell img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:.4s var(--ease)}
-.pgrid .cell:hover img{filter:grayscale(0)}
-.pgrid .cell .t{position:absolute;left:0;bottom:0;right:0;font-family:'Space Grotesk';font-size:10px;font-weight:600;letter-spacing:.04em;background:var(--paper);border-top:1px solid var(--line);padding:5px 7px;display:flex;justify-content:space-between}
-.pgrid .cell .t b{font-weight:600}.pgrid .cell .t span{color:var(--mut)}
+.hero .num{font-family:'Space Grotesk';font-size:12px;letter-spacing:.12em;color:var(--mut);margin-top:28px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
+/* floating cards */
+.cloud{position:relative;height:clamp(420px,44vw,500px)}
+.fcard{position:absolute;background:#fff;border:1px solid var(--ink);border-radius:2px;padding:13px 15px;min-width:174px;animation:bob 5s ease-in-out infinite}
+.fcard:nth-child(2){animation-delay:-2.4s}.fcard:nth-child(3){animation-delay:-1.2s}.fcard:nth-child(4){animation-delay:-3.1s}
+.fcard .top{display:flex;align-items:center;gap:11px}
+.fcard .av{width:40px;height:40px;border-radius:2px;object-fit:cover;filter:grayscale(1) contrast(1.05);flex:none;border:1px solid var(--ink)}
+.fcard .nm{font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:-.01em}
+.fcard .rl{font-family:'DM Mono',monospace;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;margin-top:2px}
+.fcard .pill{display:inline-block;margin-top:11px;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--red);border:1px solid var(--red);padding:3px 9px;border-radius:2px}
+.fcard.a{top:1%;left:0}.fcard.b{top:8%;right:0}.fcard.c{bottom:8%;left:1%}.fcard.d{bottom:0;right:2%}
+.livebubble{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;width:min(292px,76%);background:#fff;border:1px solid var(--ink);border-radius:2px;padding:17px 19px;box-shadow:6px 6px 0 var(--ink)}
+.livebubble .lab{font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:7px;margin-bottom:11px}
+.livebubble .lab i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.livebubble q{font-family:'Space Grotesk';font-size:17px;font-weight:500;line-height:1.3;color:var(--ink);quotes:none}
+.livebubble q b{font-weight:700;color:var(--red)}
+.livebubble .resp{display:flex;align-items:center;gap:8px;margin-top:13px;font-family:'DM Mono',monospace;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+.livebubble .mini{display:flex}.livebubble .mini img{width:22px;height:22px;border-radius:2px;border:1px solid #fff;object-fit:cover;filter:grayscale(1);margin-left:-6px}.livebubble .mini img:first-child{margin-left:0}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 /* section header */
 .sec{padding:64px 0}
 .sechead{display:grid;grid-template-columns:.3fr 1fr;gap:20px;align-items:baseline;margin-bottom:40px}
@@ -80,7 +92,7 @@ nav .links a:hover{color:var(--red)}
 footer{border-top:1px solid var(--line);padding:26px 0}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk';font-size:12px;letter-spacing:.04em;color:var(--mut);flex-wrap:wrap;gap:10px}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;font-family:'Space Grotesk';font-size:12px;font-weight:600;background:var(--ink);color:#fff;padding:9px 14px;border-radius:2px}
-@media(max-width:860px){.hero .grid,.sechead{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.hero .grid,.sechead{grid-template-columns:1fr}.cloud{order:-1}.steps{grid-template-columns:1fr}.roster{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -88,18 +100,15 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;font-
 <nav><div class="wrap"><b>Roundtable</b><div class="links"><a href="#how">How it works</a><a href="#demo">Demo</a><a href="#agents">Agents</a><a href="#start" style="color:var(--red)">Start →</a></div></div></nav>
 
 <header class="hero"><div class="wrap grid">
-  <div>
+  <div class="lead">
     <div class="eye"><span class="r">●</span> Multi-expert AI &nbsp;/&nbsp; <span id="eye"></span></div>
     <h1 id="h1"></h1>
-  </div>
-  <div>
     <p class="sub" id="sub"></p>
     <div class="ctas"><a class="btn fill" href="#agents" id="cta1"></a><a class="btn line" href="#demo" id="cta2"></a></div>
     <div class="num"><span>EST. 2026</span><span>FIG. 01 — THE PANEL</span></div>
   </div>
+  <div class="cloud" id="cloud"></div>
 </div></header>
-
-<section class="wrap"><div class="pgrid" id="pgrid"></div></section>
 
 <section class="sec wrap" id="how">
   <div class="sechead"><div class="eye"><span class="r">/</span> Process</div><h2>Three steps to a sharper answer.</h2></div>
@@ -130,7 +139,7 @@ eye.textContent=C.eyebrow; h1.innerHTML=C.h1.replace('roundtable','<em>roundtabl
 cta1.textContent=C.ctaPrimary; cta2.textContent='▸ '+C.ctaSecondary;
 demoTitle.textContent=C.demoTitle; rosterTitle.textContent=C.rosterTitle;
 closeTitle.textContent=C.closeTitle; closeSub.textContent=C.closeSub;
-pgrid.innerHTML=RT.roster.slice(0,6).map(p=>`<div class="cell"><img loading="lazy" src="${p.img}" alt="${p.name}"><div class="t"><b>${p.name}</b><span>${p.role}</span></div></div>`).join('');
+cloud.innerHTML=RT.heroCardsHTML();
 steps.innerHTML=C.steps.map(s=>`<div class="step"><div class="bn">${s.n}</div><h3>${s.title}</h3><p>${s.body}</p></div>`).join('');
 tx.innerHTML=`<div class="q"><span class="lab">You asked</span>"${RT.demo.q}"</div>`+RT.demo.turns.map(t=>`<div class="turn"><img loading="lazy" src="${t.img}" alt=""><div><div class="who">${t.name} <span>· ${t.role}</span></div><p>${t.text}</p></div></div>`).join('');
 roster.innerHTML=RT.roster.map(p=>`<div class="rc"><div class="ph"><img loading="lazy" src="${p.img}" alt="${p.name}"></div><div class="m"><b>${p.name}</b><span>${p.role}</span></div></div>`).join('');
