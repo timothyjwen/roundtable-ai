@@ -28,9 +28,9 @@ window.RT = {
   },
   // Tech / startup panel for the fundraising story. Real personas, local avatars.
   roster: [
-    { name: "James Wei",       role: "Strategy",            img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg" },
-    { name: "Marco Reyes",     role: "Finance & Ventures",  img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg" },
-    { name: "Eunji Choi",      role: "Engineering",         img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg" },
+    { name: "James Wei",       role: "Fundraising",            img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg" },
+    { name: "Marco Reyes",     role: "Venture Capital",  img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg" },
+    { name: "Eunji Choi",      role: "Startup Finance",         img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg" },
     { name: "Dana Mercer",     role: "Product",             img: "avatars/7a221697-9c33-44bd-ac9c-6a4eb0c90e6b-1778828297912.jpg" },
     { name: "Zhao Qihang",     role: "Founder",             img: "avatars/83be0439-c766-4eda-bc83-a534501f8337-1778827838980.jpg" },
     { name: "Elias Varga",     role: "AI Research",         img: "avatars/680343c8-ba7d-4bc4-8c24-554002301197-1778828752853.jpg" },
@@ -40,9 +40,9 @@ window.RT = {
   demo: {
     q: "Should I raise funding before or after launching?",
     turns: [
-      { name: "James Wei",   role: "Strategy",           img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg", short: "Raise after — land 10 paying customers first.",   text: "Raise after. Land your first ten paying customers — traction makes every investor conversation easier, and revenue is the best story you have." },
-      { name: "Marco Reyes", role: "Finance & Ventures", img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg", short: "Capital-intensive? Raise before you launch.",      text: "I'd push back. If you're capital-intensive, raise before — waiting on revenue can mean shipping a weaker product into a closing window." },
-      { name: "Eunji Choi",  role: "Engineering",        img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg", short: "Either way — prove real demand first.",            text: "Either way, get one real signal of demand first. That's what settles the question — not the timing." }
+      { name: "James Wei",   role: "Fundraising",           img: "avatars/826d2db7-ad5e-40d8-a1d9-ff957066ca67-1778829273974.jpg", short: "Raise after — land 10 paying customers first.",   text: "Raise after. Land your first ten paying customers — traction makes every investor conversation easier, and revenue is the best story you have." },
+      { name: "Marco Reyes", role: "Venture Capital", img: "avatars/54102cdf-fd9f-487d-aaf8-256b0ff82e8a-1778829188973.jpg", short: "Capital-intensive? Raise before you launch.",      text: "I'd push back. If you're capital-intensive, raise before — waiting on revenue can mean shipping a weaker product into a closing window." },
+      { name: "Eunji Choi",  role: "Startup Finance",        img: "avatars/1d3ee4e5-9b2c-4eda-ad2e-c7a9f4d71522-1778827713678.jpg", short: "Either way — prove real demand first.",            text: "Either way, get one real signal of demand first. That's what settles the question — not the timing." }
     ]
   }
 };
