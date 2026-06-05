@@ -55,7 +55,7 @@ RT.heroCardsHTML = function(){
   const traits = ['Strategic','ROI-minded','Pragmatic','User-first'];
   const q = RT.demo.q.replace(/\b(before|after)\b/g, '<b>$1</b>');
   const cards = t.slice(0,4).map((p,i) =>
-    `<div class="fcard ${pos[i]}"><div class="top"><img class="av" loading="lazy" src="${p.img}" alt="${p.name}"><div><div class="nm">${p.name}</div><div class="rl">${p.role}</div></div></div><span class="pill">${traits[i]}</span></div>`
+    `<div class="fcard ${pos[i]}"><img class="ph" loading="lazy" src="${p.img}" alt="${p.name}"><span class="pill">${traits[i]}</span><div class="meta"><b>${p.name}</b><span>${p.role}</span></div></div>`
   ).join('');
   const mini = t.slice(0,3).map(p => `<img src="${p.img}" alt="">`).join('');
   const bubble = `<div class="livebubble"><div class="lab"><i></i>Live discussion</div><q>“${q}”</q><div class="resp"><span class="mini">${mini}</span>3 specialists responding…</div></div>`;
