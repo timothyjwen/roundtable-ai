@@ -18,7 +18,7 @@ window.RT = {
     why: [
       { title: "Generative discussion", body: "Not a static answer. Ideas get introduced, challenged, and refined in real time — easier to follow than a wall of text." },
       { title: "Expert perspectives", body: "Each specialist argues from a distinct point of view, so fewer angles slip past you." },
-      { title: "Both sides, then yours", body: "Hear the debate from every side, then come to your own conclusion. You stay the decision-maker." }
+      { title: "Conversation. Follows your lead", body: "You can respond in real time, ask for another angle, or move the room toward what matters." }
     ],
     rosterTitle: "Assemble your panel",
     rosterSub: "A few specialists, each with their own point of view. Pick the ones your question needs.",
